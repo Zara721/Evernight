@@ -1,0 +1,139 @@
+.Combatent {
+    width: 288px;
+    height: 96px;
+    background: url("../images/icons/uiBar.png") no-repeat no-repeat;
+    position: absolute;
+}
+
+.Battle .Combatent[data-active="false"] {
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.Battle .Combatent[data-active="true"] {
+    opacity: 1;
+}
+
+.Combatent[data-team="player"] {
+    left: 100px;
+    top: 100px;
+}
+
+.Combatent[data-team="enemy"] {
+    top: 60px;
+    right: 60px;
+}
+
+.Combatent_character_crop {
+    position: absolute;
+    top: 10px;
+    left: 9px;
+    width: 60px;
+    height: 30px;
+    scale: 0.5;
+}
+
+.Battle .Combatent_character_crop {
+    display: none;
+}
+
+.Combatent_name {
+    position: absolute;
+    left: 6px;
+    top: -7px;
+    white-space: nowrap;
+    background: var(--menu-font-color);
+    color: aliceblue;
+    font-size: 14px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin: 0;
+}
+
+.Combatent_type {
+    position: absolute;
+    left: 18px;
+    bottom: 10px;
+}
+
+.Combatent_life-container {
+    position: absolute;
+    left: 96px;
+    top: 32px;
+    width: 152px;
+    height: 20px;
+}
+
+.Combatent_life-container > rect {
+    transition: width 0.2s;
+}
+
+.Combatent_xp-container {
+    position: absolute;
+    left: 96px;
+    top: 55px;
+    width: 152px;
+    height: 8px;
+}
+
+.Combatent_level {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    right: -4px;
+    top: 3px;
+    width: 25px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #c69965;
+    border: 2px solid #a4723a;
+    margin: 0;
+}
+
+.Combatent_status {
+    position: absolute;
+    font-size: 12px;
+    left: 15px;
+    bottom: -6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    white-space: nowrap;
+    background: rgb(39, 37, 37);
+    color: aliceblue;
+    margin: 0;
+}
+
+.Combatent_status[data-status="stub"] {
+    color: rgb(179, 33, 33);
+}
+
+.Combatent_status[data-status="hug"] {
+    color: rgb(179, 33, 128);
+}
+
+.Sprite {
+    position: absolute;
+    transition: opacity 0.4s, transform 0.4s;
+}
+
+.Sprite[data-team="player"] {
+    bottom: 150px;
+    left: 180px;
+}
+
+.Sprite[data-team="enemy"] {
+    top: 178px;
+    right: 120px;
+}
+
+.Sprite[data-active="false"] {
+    opacity: 0;
+    transform: translate3d(0,12px,0);
+}
+
+.Sprit[data-active="true"] {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+}

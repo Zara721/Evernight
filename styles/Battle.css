@@ -1,0 +1,127 @@
+.Battle {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url(../images/ccAreana.png); 
+    background-size: cover;
+    image-rendering: pixelated;
+}
+
+.Battle_mc, .Battle_enemy {
+    position: absolute;
+    transform: scale(2);
+    width: 31.5px;
+    height: 48px;
+    overflow: hidden;
+}
+
+.Battle_mc img, .Battle_enemy img {
+    pointer-events: none;
+}
+
+.Battle_mc {
+    bottom: 115px;
+    left: 32px;
+}
+
+.Battle_mc img {
+    transform: translateY(-144px); /* Ajust mc spritesheet to show back */
+}
+
+.Battle_enemy {
+    top: 200px;
+    right: 40px;
+}
+
+/* Animations */
+
+/* Blink Animation */
+@keyframes battle-damage-blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+.battle-damage-blink {
+    animation: battle-damage-blink 0.3s steps(2, start) infinite;
+}
+
+/* Tackle Animation */
+@keyframes battle-tackle-right {
+    0% { transform: translate3d(0,0,0) rotate(0deg)}
+    25% { transform: translate3d(170%,-20%,0) rotate(45deg)}
+    100% { transform: translate3d(0,0,0)}
+}
+
+.battle-tackle-right {
+    animation: battle-tackle-right 0.8s;
+}
+
+@keyframes battle-tackle-left {
+    0% { transform: translate3d(0,0,0) rotate(0deg)}
+    25% { transform: translate3d(-180%,20%,0) rotate(45deg)}
+    100% { transform: translate3d(0,0,0)}
+}
+
+.battle-tackle-left {
+    animation: battle-tackle-left 0.8s;
+}
+
+/* Blob Animation */
+
+.blob-orb {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+}
+
+@keyframes battle-blob-right {
+    0% { transform: translate3d(0,0,0) scale(2); opacity: 1}
+    50% { transform: translate3d(150px, -20px, 0) scale(1); opacity: 1}
+    100% { transform: translate3d(220px, -30px, 0) scale(0.5); opacity: 1}
+}
+
+.battle-blob-right {
+    left: 350px;
+    top: 250px;
+    animation: battle-blob-right 1s forwards;
+}
+
+@keyframes battle-blob-left {
+    0% { transform: translate3d(0,0,0) scale(2); opacity: 1}
+    50% { transform: translate3d(-120px, 10px,0) scale(1); opacity: 1}
+    100% { transform: translate3d(-190px, 20px,0) scale(0.5); opacity: 1}
+}
+
+.battle-blob-left {
+    right: 320px;
+    top: 230px;
+    animation: battle-blob-left 1s forwards;
+}
+
+/* Spin Animation */
+@keyframes battle-spin-right {
+    0% { transform: scaleX(1); }
+    25% { transform: scaleX(-1); }
+    50% { transform: scaleX(1); }
+    75% { transform: scaleX(-1); }
+    100% { transform: scaleX(1); }
+}
+
+.battle-spin-right {
+    animation: battle-spin-right 1.2s;
+}
+
+@keyframes battle-spin-left {
+    0% { transform: scaleX(1); }
+    25% { transform: scaleX(-1); }
+    50% { transform: scaleX(1); }
+    75% { transform: scaleX(-1); }
+    100% { transform: scaleX(1); }
+}
+
+.battle-spin-left {
+    animation: battle-spin-left 1.2s;
+}

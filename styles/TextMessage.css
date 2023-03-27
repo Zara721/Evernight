@@ -2,17 +2,27 @@
     position: absolute;
     left: 0;
     right: 0;
-    height: 100px;
+    bottom: 0;
+    height: 80px;
     padding: 4px;
 
     background: var(--menu-background);
-    border-top: 1px soldid var (--menu-border-color);
+    border-top: 1.5px solid var(--menu-border-color);
     color: var(--menu-font-color);
   }
 
   .TextMessage_p {
     margin: 0;
-    font-size: 20px;
+    font-size: 17px;
+    font-family: monospace;
+  }
+
+  .TextMessage span {
+    opacity: 0;
+  }
+
+  .TextMessage span.revealed {
+    opacity: 1;
   }
 
   .TextMessage_button {

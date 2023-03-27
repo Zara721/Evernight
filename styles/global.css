@@ -2,7 +2,7 @@
     --border-color: #121335;
     --dialog-background: #FBFCE7;
 
-    --menu-background: #FCF8E7;
+    --menu-background: #efe6c0;
     --menu-border-color: #0A5438;
     --menu-font-color: #05210B;
     --menu-selected-background: #45B0A1;
@@ -32,6 +32,6 @@ canvas {
   margin: 0 auto;
   margin-top: 30px;
 
-  outline: 1.5px solid rgb(0, 0, 0);
+  outline: 2px solid rgb(204, 177, 78);
 
 }

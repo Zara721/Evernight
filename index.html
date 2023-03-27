@@ -3,8 +3,19 @@
 
     <head>
         <title>Evernight</title>
-         <link rel="stylesheet" href="style\global.css">
-         <link rel="stylesheet" href="style\TextMessage.css">
+         <link  href="styles\global.css"  type="text/css" rel="stylesheet">
+         <link  href="styles\TextMessage.css"  type="text/css" rel="stylesheet">
+         <link  href="styles\SceneTransition.css"  type="text/css" rel="stylesheet">
+         <link  href="styles/KeyboardMenu.css"  type="text/css" rel="stylesheet">
+         <link  href="styles/Hud.css"  type="text/css" rel="stylesheet">
+
+
+        <!--all Battle related css-->
+        <link  href="styles/Battle.css"  type="text/css" rel="stylesheet">
+        <link  href="styles/Combatent.css"  type="text/css" rel="stylesheet">
+        <link  href="styles/Team.css"  type="text/css" rel="stylesheet">
+        <link  href="styles/SumbissionMenu.css"  type="text/css" rel="stylesheet">
+
     </head>
       
     <body>
@@ -12,19 +23,41 @@
             <canvas class="game-canvas" width="850px" height="500px"></canvas>
         </div>    
 
-        <script src="init.js"></script>    
+        <!-- Content -->
+        <script src="Content/sprites.js"></script>
+        <script src="Content/actions.js"></script>
+        <script src="Content/enemies.js"></script>
+
+        <!-- State -->
+        <script src="State/PlayerState.js"></script>
+
+        <script src="utils.js"></script>
+        <script src="DirectionInput.js"></script>
+        <script src="World.js"></script>
+        <script src="GameObject.js"></script>
+        <script src="Person.js"></script>
+        <script src="Sprite.js"></script>
+        <script src="WorldMap.js"></script>
+        <script src="WorldEvent.js"></script>
+        <script src="TextMessage.js"></script>
+        <script src="KeyPressListener.js"></script>
+        <script src="RevealingText.js"></script>
+        <script src="SceneTransition.js"></script>
+        <script src="KeyboardMenu.js"></script>
+        <script src="Hud.js"></script>
+
+        <!--all Battle related scripts-->
+        <script src="Battle/Battle.js"></script>
+        <script src="Battle/Combatent.js"></script>
+        <script src="Battle/Team.js"></script>
+        <script src="Battle/SubmissionMenu.js"></script>
+        <script src="Battle/ReplacementMenu.js"></script>
+        <script src="Battle/BattleEvent.js"></script>
+        <script src="Battle/TurnCycle.js"></script>
+        <script src="Battle/BattleAnimations.js"></script>
+
+        <script src="init.js"></script>
+            
     </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

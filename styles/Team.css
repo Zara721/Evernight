@@ -1,0 +1,34 @@
+.Team {
+    display: flex;
+    position: absolute;
+    top: 4px;
+    gap: 7px;
+}
+
+.Team[data-team="player"] {
+    left: 12px;
+}
+
+.Team[data-team="enemy"] {
+    right: 10px;
+}
+
+/* Activate the paths for dead sprites*/
+
+.Team .dead-sprite {
+    display: none;
+}
+
+.Team .active-sprite-indicator {
+    display: none;
+}
+
+/* Make the sprites opt in with data-attributes */
+
+.Team [data-dead="true"] .dead-sprite {
+    display: block;
+}
+
+.Team [data-active="true"] .active-sprite-indicator {
+    display: block;
+}
