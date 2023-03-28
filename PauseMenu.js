@@ -50,7 +50,8 @@ class PauseMenu {
                 label:`Swap for ${base.name}`,
                 description: base.description,
                 handler: () => {
-                    //...
+                    playerState.swapLineup(pageKey, id);
+                    this.keyboardMenu.setOptions(this.getOptions("root"))
                 }
             }
         })
@@ -62,7 +63,8 @@ class PauseMenu {
                 label: "Move to front",
                 description: "Move this sprite to the front of list",
                 handler: () => {
-                    //...
+                    playerState.moveToFront(pageKey)
+                    this.keyboardMenu.setOptions(this.getOptions("root"))
                 }
             },
             {
