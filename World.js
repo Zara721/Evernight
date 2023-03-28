@@ -37,10 +37,11 @@ class World {
         //Draw Upper Image, the foreground
         this.map.drawUpperImage(this.ctx, camPerson);
         
-        
-        requestAnimationFrame(() => {
-          loop();
-        })
+        if (!this.map.isPaused){
+          requestAnimationFrame(() => {
+            loop();
+          })
+        }
       }
       loop();
     }
@@ -49,6 +50,13 @@ class World {
       new KeyPressListener("Enter", () => {
         //Checking if there's an npc in place to talk to
         this.map.checkForActionCutscene()
+      })
+      new KeyPressListener("Escape", () => {
+        if (!this.map.isCutscenePlaying) {
+          this.map.startCutscene([
+            {type: "pause"}
+          ])
+        }
       })
     }
 

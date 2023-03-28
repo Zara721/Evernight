@@ -12,6 +12,7 @@ class WorldMap {
       this.upperImage.src = config.upperSrc;
       
       this.isCutscenePlaying = false;
+      this.isPaused = false;
       
     }
     

@@ -18,6 +18,15 @@ class PlayerState {
                 maxXp: 100,
                 level: 1,
                 state: null,
+            },
+            "sp3": {
+                spriteId: "sp003",
+                hp: 50,
+                maxHp: 50,
+                xp: 70,
+                maxXp: 100,
+                level: 1,
+                state: null,
             }
         }
         this.lineup = ["sp1", "sp2"];
