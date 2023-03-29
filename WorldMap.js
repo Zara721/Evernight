@@ -113,6 +113,7 @@ class WorldMap {
 
   const OverworldMaps = {
     ccIsland: {
+      id: "ccIsland",
       lowerSrc: "./images/ccWorld.png",
       upperSrc: "./images/ccForeground.png",
       gameObjects: {
@@ -192,7 +193,7 @@ class WorldMap {
         //front pink house
         [utils.asGridCoords(24,15)] : true,
         [utils.asGridCoords(25,15)] : true,
-        [utils.asGridCoords(26,15)] : true,
+        [utils.asGridCoords(26,15)] : false,
         [utils.asGridCoords(27,15)] : true,
         [utils.asGridCoords(28,15)] : true,
 
@@ -232,17 +233,25 @@ class WorldMap {
             ]
           }
         ],
-        [utils.asGridCoords(26,16)]: [
+        [utils.asGridCoords(26,15)]: [
           {
             events: [
-              {type: "changeMap", map: "magentaHouse"},
-              {who: "mc", type: "stand", direction: "down"},
+              {
+                type: "changeMap",
+                map: "magentaHouse",
+                x: utils.withGrid(15),
+                y: utils.withGrid(9),
+                direction: "down",
+              }
+              // {type: "changeMap", map: "magentaHouse"},
+              // {who: "mc", type: "stand", direction: "down"},
             ]
           }
         ]
       }
     },
     magentaHouse: {
+      id: "magentaHouse",
       lowerSrc: "./images/ccMainRoom.png",
       upperSrc: "./images/ccMainRoomForeground.png",
       gameObjects: {
@@ -284,8 +293,10 @@ class WorldMap {
           ]
         }), 
         spriteGem: new SpriteGem ({
-          x: utils.asGridCoords(32),
-          y: utils.asGridCoords(15),
+          x: utils.withGrid(33),
+          y: utils.withGrid(14),
+          storyFlag: "Used_Gem_Stone",
+          sprites: ["an001", "sp002", "aq002"],
         })
       },
       walls: {
@@ -297,8 +308,15 @@ class WorldMap {
         [utils.asGridCoords(15,7)]: [
           {
             events: [
-              {type: "changeMap", map: "ccIsland"},
-              {who: "mc", type: "stand", direction: "down"},
+              {
+                type: "changeMap",
+                map: "ccIsland",
+                x: utils.withGrid(26),
+                y: utils.withGrid(16),
+                direction: "down",
+              }
+              // {type: "changeMap", map: "ccIsland",},
+              // {who: "mc", type: "stand", direction: "down"},
             ]
           }
         ]

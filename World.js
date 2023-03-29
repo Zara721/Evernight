@@ -69,10 +69,18 @@ class World {
       })
     }
 
-    startMap(mapConfig) {
+    startMap(mapConfig, mcInitialState=null) {
       this.map = new WorldMap (mapConfig)
       this.map.world = this;
       this.map.mountObjects();
+
+      //Override the original cooardinates and direction for correct map change transitions
+      if (mcInitialState) {
+        this.map.removeWall(this.map.gameObjects.mc.x, this.map.gameObjects.mc.y)
+        this.map.gameObjects.mc.x = mcInitialState.x;
+        this.map.gameObjects.mc.y = mcInitialState.y;
+        this.map.gameObjects.mc.direction = mcInitialState.direction;
+      }
     }
 
     init() {

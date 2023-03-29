@@ -2,34 +2,16 @@ class PlayerState {
     constructor() {
         this.sprites = {
             "sp1": {
-                spriteId: "an001",
+                spriteId: "aq001",
                 hp: 50,
                 maxHp: 50,
                 xp: 97,
                 maxXp: 100,
                 level: 1,
                 state: {type: "hugs"},
-            },
-            "sp2": {
-                spriteId: "sp002",
-                hp: 50,
-                maxHp: 50,
-                xp: 70,
-                maxXp: 100,
-                level: 1,
-                state: null,
-            },
-            "sp3": {
-                spriteId: "sp003",
-                hp: 50,
-                maxHp: 50,
-                xp: 70,
-                maxXp: 100,
-                level: 1,
-                state: null,
             }
         }
-        this.lineup = ["sp1", "sp2"];
+        this.lineup = ["sp1"];
         this.items = [
             {actionId: "item_recoverHp", instanceId: "item1"},
             {actionId: "item_recoverHp", instanceId: "item1"},
@@ -38,6 +20,24 @@ class PlayerState {
         this.storyFlags = {
   
         }
+    }
+
+    addSprite(spriteId) {
+        const newId = `sp${Math.floor(Math.random() * 99999)}`;
+        this.sprites[newId] = {
+            spriteId,
+            hp: 50,
+            maxHp: 50,
+            xp: 0,
+            maxXp: 100,
+            level: 1,
+            state: null,
+        }
+        if (this.lineup.length < 3) {
+            this.lineup.push(newId)
+        }
+        utils.emitEvent("LineupChanged");
+        console.log(this)
     }
 
     swapLineup(oldId, incomingId) {

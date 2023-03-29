@@ -64,7 +64,11 @@ class WorldEvent {
 
       const sceneTransition = new SceneTransition();
       sceneTransition.init(document.querySelector(".game-container"), () => {
-        this.map.world.startMap(OverworldMaps[this.event.map]);
+        this.map.world.startMap(OverworldMaps[this.event.map], {
+          x: this.event.x,
+          y: this.event.y,
+          direction: this.event.direction,
+        });
         resolve();
 
         sceneTransition.fadeOut();
@@ -97,6 +101,16 @@ class WorldEvent {
     addStoryFlag(resolve) {
       window.playerState.storyFlags[this.event.flag] = true;
       resolve();
+    }
+
+    summoningMenu(resolve) {
+      const menu = new SummoningMenu({
+        sprites: this.event.sprites,
+        onComplete: () => {
+          resolve();
+        }
+      })
+      menu.init(document.querySelector(".game-container"));
     }
 
     init() {
