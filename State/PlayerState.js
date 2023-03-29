@@ -3,7 +3,7 @@ class PlayerState {
         this.sprites = {
             "sp1": {
                 spriteId: "an001",
-                hp: 40,
+                hp: 50,
                 maxHp: 50,
                 xp: 97,
                 maxXp: 100,
@@ -35,6 +35,9 @@ class PlayerState {
             {actionId: "item_recoverHp", instanceId: "item1"},
             {actionId: "item_recoverHp", instanceId: "item1"},
         ]
+        this.storyFlags = {
+  
+        }
     }
 
     swapLineup(oldId, incomingId) {

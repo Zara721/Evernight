@@ -58,7 +58,10 @@ class WorldMap {
           event: events[i],
           map: this,
         })
-        await eventHandler.init();
+        const result = await eventHandler.init();
+        if (result === "Lost_Battle") {
+          break;
+        }
       }
       
       this.isCutscenePlaying = false;
@@ -74,7 +77,14 @@ class WorldMap {
         return `${object.x},${object.y}` === `${nextCoords.x},${nextCoords.y}`
       });
       if (this.isCutscenePlaying === false && match && match.talking.length) {
-        this.startCutscene(match.talking[0].events)
+
+        const relevantScenario = match.talking.find(scenario => {
+          return (scenario.required || []).every(sf => {
+            return playerState.storyFlags[sf]
+          })
+        })
+
+        relevantScenario && this.startCutscene(relevantScenario.events)
       }
     }
 
@@ -127,7 +137,7 @@ class WorldMap {
             {
               events: [
                 {type: "textMessage", text: "It's a wonderful day for a duel...", faceMc: "npc1"},
-                { type: "battle", enemyId: "aster"}
+                {type: "battle", enemyId: "aster"},
               ]
             },
             
@@ -145,9 +155,26 @@ class WorldMap {
           ],
           talking: [
             {
+              required: ["Talked_to_Celeste"],
+              events: [
+                {type: "textMessage", text: "Don't you think Celeste has the coolest hair", faceMc: "npc2"}
+                // {type: "textMessage", text: "I already gave you my favorite a flower crown", faceMc: "npc2"},
+                // {type: "textMessage", text: "Hmmp, wait till my brother gets to you"},
+              ]
+            },
+            {
+              required: ["Defeat_Amberly"],
+              events: [
+                {type: "textMessage", text: "I already gave you my favorite a flower crown", faceMc: "npc2"},
+                {type: "textMessage", text: "Hmmp, wait till my brother gets to you"},
+              ]
+            },
+            {
               events: [
                 {type: "textMessage", text: "You don't got a flower crown", faceMc: "npc2"},
-                { type: "battle", enemyId: "amberly"}
+                { type: "battle", enemyId: "amberly"},
+                {type: "addStoryFlag", flag: "Defeat_Amberly"},
+                {type: "textMessage", text: "Well maybe you do deserve this flower crown...", faceMc: "npc1"},
                 // {type: "textMessage", text: "I've got the best flower crown in town!"},
               ]
             },
@@ -216,18 +243,18 @@ class WorldMap {
       }
     },
     magentaHouse: {
-      lowerSrc: "./images/ccHouseMagenta.png",
-      upperSrc: "./images/ccHouseMagentaForeground.png",
+      lowerSrc: "./images/ccMainRoom.png",
+      upperSrc: "./images/ccMainRoomForeground.png",
       gameObjects: {
         mc: new Person ({
           isPlayerControlled: true,
-          x: utils.withGrid(9),
-          y: utils.withGrid(6),
+          x: utils.withGrid(15),
+          y: utils.withGrid(10),
           src:  "./images/ccMc.png",
         }),
         cat1: new Person ({
-          x: utils.withGrid(6),
-          y: utils.withGrid(9),
+          x: utils.withGrid(12),
+          y: utils.withGrid(15),
           src:  "./images/blackCat.png",
           talking: [
             {
@@ -238,14 +265,36 @@ class WorldMap {
             
           ],
         }),
+        npc3: new Person ({
+          x: utils.withGrid(21),
+          y: utils.withGrid(12),
+          src:  "./images/ccWorldCeleste.png",
+          behaviourLoop: [
+            
+          ],
+          talking: [
+            {
+              events: [
+                {type: "textMessage", text: "Glad you made it to Evernight!", faceMc: "npc3"},
+                {who: "npc3", type: "stand", direction: "down", time: 50},
+                {type: "addStoryFlag", flag: "Talked_to_Celeste"}
+              ]
+            },
+            
+          ]
+        }), 
+        spriteGem: new SpriteGem ({
+          x: utils.asGridCoords(32),
+          y: utils.asGridCoords(15),
+        })
       },
       walls: {
         //pink house
-        [utils.asGridCoords(9,2)] : true,
+        [utils.asGridCoords(15,6)] : true,
         
       },
       cutsceneSpaces: {
-        [utils.asGridCoords(9,3)]: [
+        [utils.asGridCoords(15,7)]: [
           {
             events: [
               {type: "changeMap", map: "ccIsland"},

@@ -74,8 +74,8 @@ class WorldEvent {
     battle(resolve) {
         const battle = new Battle({
           enemy: Enemies[this.event.enemyId],
-          onComplete: () => {
-            resolve();
+          onComplete: (didWin) => {
+            resolve(didWin ? "Won_Battle" : "Lost_Battle");
           }
         })
 
@@ -92,6 +92,11 @@ class WorldEvent {
         }
       });
       menu.init(document.querySelector(".game-container"));
+    }
+
+    addStoryFlag(resolve) {
+      window.playerState.storyFlags[this.event.flag] = true;
+      resolve();
     }
 
     init() {
