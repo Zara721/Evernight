@@ -3,6 +3,7 @@ class Person extends GameObject {
       super(config);
       this.movingProgressRemaining = 0;
       this.isStanding = false;
+      this.intentPosition = null; //either null or [x,y] coordinate
       
       this.isPlayerControlled = config.isPlayerControlled || false;
       
@@ -34,6 +35,11 @@ class Person extends GameObject {
     }
     
     startBehaviour(state, behaviour) {
+
+        if (!this.isMounted) {
+          return;
+        }
+
         //setting the character direction to whatever behaviour has
         this.direction = behaviour.direction;
         
@@ -52,6 +58,14 @@ class Person extends GameObject {
             
             //ready to walk
             this.movingProgressRemaining = 16;
+
+            //Add next position intent
+            const intentPosition = utils.nextPosition(this.x, this.y, this.direction)
+            this.intentPosition = [
+              intentPosition.x,
+              intentPosition.y,
+            ]
+
             this.updateSprite(state)
         }
       
@@ -73,6 +87,7 @@ class Person extends GameObject {
       
         if(this.movingProgressRemaining === 0) {
           //The player has finished the walk
+          this.intentPosition = null;
           utils.emitEvent("PersonWalkingComplete", {
             whoId: this.id
           })

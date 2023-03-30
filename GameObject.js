@@ -12,12 +12,11 @@ class GameObject {
       
       this.behaviourLoop = config.behaviourLoop || [];
       this.behaviourLoopIndex = 0;
-
       this.talking = config.talking || [];
+      this.retryTimeout = null;
     }
     
     mount(map) {
-      console.log("mounting")
       this.isMounted = true;
       
       //If there is a behaviour, then start the transition after a short delay
@@ -34,7 +33,20 @@ class GameObject {
       
       //Basically, don't do anything if there is a higher priority cutscene
       //or there is no config on the sprite
-      if(map.isCutscenePlaying || this.behaviourLoop.length === 0 || this.isStanding) {
+      if(this.behaviourLoop.length === 0) {
+        return;
+      }
+
+      if (map.isCutscenePlaying) {
+
+        if (this.retryTimeout) {
+          clearTimeout(this.retryTimeout);
+        }
+
+        this.retryTimeout = setTimeout(() => {
+          this.doBehaviourEvent(map);
+          console.log("check");
+        }, 1000)
         return;
       }
       

@@ -61,6 +61,11 @@ class WorldEvent {
     }
     
     changeMap(resolve) {
+      
+      //Deactivate old objects
+      Object.values(this.map.gameObjects).forEach(obj => {
+        obj.isMounted = false;
+      })
 
       const sceneTransition = new SceneTransition();
       sceneTransition.init(document.querySelector(".game-container"), () => {
@@ -70,7 +75,6 @@ class WorldEvent {
           direction: this.event.direction,
         });
         resolve();
-
         sceneTransition.fadeOut();
       })
     }

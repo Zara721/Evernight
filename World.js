@@ -101,8 +101,7 @@ class World {
       this.titleScreen = new TitleScreen({
         progress: this.progress
       })
-      // const useSaveFile = await this.titleScreen.init(container);
-      const useSaveFile = false;
+      const useSaveFile = await this.titleScreen.init(container);
 
       //Potentially saved data from local storage
       let initMcState = null;

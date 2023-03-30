@@ -37,7 +37,17 @@ class WorldMap {
     
     isSpaceTaken(currentX, currentY, direction) {
         const {x,y} = utils.nextPosition(currentX, currentY, direction);
-        return this.walls[`${x},${y}`] || false;
+        if (this.walls[`${x},${y}`]) {
+          return true;
+        }
+        //Check for gameObject at this poisition
+        return Object.values(this.gameObjects).find(obj => {
+          if (obj.x === x && obj.y === y){return true;}
+          if (obj.intentPosition && obj.intentPosition[0] === x && obj.intentPosition[1] === y) {
+            return true
+          }
+          return false;
+        })
     }
     
     mountObjects() {
@@ -78,7 +88,7 @@ class WorldMap {
       this.isCutscenePlaying = false;
       
       //reset Npc's to do their idle behaviour
-      Object.values(this.gameObjects).forEach(object => object.doBehaviourEvent(this))
+      // Object.values(this.gameObjects).forEach(object => object.doBehaviourEvent(this))
     }
 
     checkForActionCutscene() {
@@ -87,7 +97,7 @@ class WorldMap {
       const match = Object.values(this.gameObjects).find(object => {
         return `${object.x},${object.y}` === `${nextCoords.x},${nextCoords.y}`
       });
-      if (this.isCutscenePlaying === false && match && match.talking.length) {
+      if (!this.isCutscenePlaying && match && match.talking.length) {
 
         const relevantScenario = match.talking.find(scenario => {
           return (scenario.required || []).every(sf => {
@@ -130,13 +140,13 @@ class WorldMap {
           x: utils.withGrid(18),
           y: utils.withGrid(10),
           src:  "./images/ccWorldAster.png",
-          // behaviourLoop: [
-          //   { type: "walk", direction: "right"},
-          //   { type: "stand", direction: "up", time: 800},
-          //   { type: "walk", direction: "up"},
-          //   { type: "walk", direction: "left"},
-          //   { type: "walk", direction: "down"},
-          // ]
+          behaviourLoop: [
+            { type: "walk", direction: "right"},
+            { type: "stand", direction: "up", time: 800},
+            { type: "walk", direction: "up"},
+            { type: "walk", direction: "left"},
+            { type: "walk", direction: "down"},
+          ],
           talking: [
             {
               events: [
