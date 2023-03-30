@@ -89,6 +89,7 @@ class WorldEvent {
     pause(resolve) {
       this.map.isPaused = true;
       const menu = new PauseMenu({
+        progress: this.map.world.progress,
         onComplete: () => {
           resolve();
           this.map.isPaused = false;

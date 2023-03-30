@@ -13,10 +13,10 @@
     background: none;
     height: 40px;
     cursor: pointer;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 0;
     padding-left: 1em;
     font-size: 17px;
+    font-family: 'Ribeye';
 }
 
 .KeyboardMenu button:focus {
@@ -51,7 +51,6 @@
 
 .DescriptionBox p {
     font-size: 17px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
 }
 

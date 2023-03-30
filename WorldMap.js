@@ -1,7 +1,9 @@
 class WorldMap {
     constructor(config) {
       this.world = null;
-      this.gameObjects = config.gameObjects;
+      this.gameObjects = {}; //Live objects in here
+      this.configObjects = config.configObjects; //Configuration content
+
       this.cutsceneSpaces = config.cutsceneSpaces || {};
       this.walls = config.walls || {};
       
@@ -39,13 +41,22 @@ class WorldMap {
     }
     
     mountObjects() {
-      Object.keys(this.gameObjects).forEach(key => {  
+      Object.keys(this.configObjects).forEach(key => {  
         
-        let object = this.gameObjects[key];
+        let object = this.configObjects[key];
         object.id = key;
         
-        //Placeholder for objects not needed to be mounted
-        object.mount(this);
+        let instance;
+        if (object.type === "Person") {
+          instance = new Person(object)
+        }
+        if (object.type === "SpriteGem") {
+          instance = new SpriteGem(object)
+        }
+        
+        this.gameObjects[key] = instance;
+        this.gameObjects[key].id = key;
+        instance.mount(this);
          })
     }
     
@@ -97,17 +108,7 @@ class WorldMap {
       }
     }
 
-    addWall(x,y) {
-      this.walls[`${x},${y}`] = true;
-    }
-    removeWall(x,y) {
-      delete this.walls[`${x},${y}`]
-    }
-    moveWall(wasX, wasY, direction) {
-      this.removeWall(wasX, wasY);
-      const {x,y} = utils.nextPosition(wasX, wasY, direction);
-      this.addWall(x,y);
-    }
+
     
   }
 
@@ -116,14 +117,16 @@ class WorldMap {
       id: "ccIsland",
       lowerSrc: "./images/ccWorld.png",
       upperSrc: "./images/ccForeground.png",
-      gameObjects: {
-        mc: new Person ({
+      configObjects: {
+        mc: {
+          type: "Person",
           isPlayerControlled: true,
           x: utils.withGrid(26),
           y: utils.withGrid(17),
           src:  "./images/ccMc.png",
-        }),
-        npc1: new Person ({
+        },
+        npc1: {
+          type: "Person",
           x: utils.withGrid(18),
           y: utils.withGrid(10),
           src:  "./images/ccWorldAster.png",
@@ -143,8 +146,9 @@ class WorldMap {
             },
             
           ]
-        }), 
-         npc2: new Person ({
+        }, 
+         npc2: {
+          type: "Person",
           x: utils.withGrid(32),
           y: utils.withGrid(15),
           src:  "./images/ccWorldAmberly.png",
@@ -181,7 +185,7 @@ class WorldMap {
             },
             
           ]
-        }), 
+        }, 
       },
       walls: {
         //blue house
@@ -254,14 +258,16 @@ class WorldMap {
       id: "magentaHouse",
       lowerSrc: "./images/ccMainRoom.png",
       upperSrc: "./images/ccMainRoomForeground.png",
-      gameObjects: {
-        mc: new Person ({
+      configObjects: {
+        mc: {
+          type: "Person",
           isPlayerControlled: true,
           x: utils.withGrid(15),
           y: utils.withGrid(10),
           src:  "./images/ccMc.png",
-        }),
-        cat1: new Person ({
+        },
+        cat1: {
+          type: "Person",
           x: utils.withGrid(12),
           y: utils.withGrid(15),
           src:  "./images/blackCat.png",
@@ -273,8 +279,9 @@ class WorldMap {
             },
             
           ],
-        }),
-        npc3: new Person ({
+        },
+        npc3: {
+          type: "Person",
           x: utils.withGrid(21),
           y: utils.withGrid(12),
           src:  "./images/ccWorldCeleste.png",
@@ -291,13 +298,14 @@ class WorldMap {
             },
             
           ]
-        }), 
-        spriteGem: new SpriteGem ({
+        }, 
+        spriteGem: {
+          type: "SpriteGem",
           x: utils.withGrid(33),
           y: utils.withGrid(14),
           storyFlag: "Used_Gem_Stone",
           sprites: ["an001", "sp002", "aq002"],
-        })
+        }
       },
       walls: {
         //pink house

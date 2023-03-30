@@ -76,28 +76,62 @@ class World {
 
       //Override the original cooardinates and direction for correct map change transitions
       if (mcInitialState) {
-        this.map.removeWall(this.map.gameObjects.mc.x, this.map.gameObjects.mc.y)
-        this.map.gameObjects.mc.x = mcInitialState.x;
-        this.map.gameObjects.mc.y = mcInitialState.y;
-        this.map.gameObjects.mc.direction = mcInitialState.direction;
+        //make sure to remove the wall of the automatic player position so no invisble block
+        const mc = this.map.gameObjects.mc
+        mc.x = mcInitialState.x;
+        mc.y = mcInitialState.y;
+        mc.direction = mcInitialState.direction;
       }
+
+      this.progress.mapId = mapConfig.id;
+      this.progress.startingMcX = this.map.gameObjects.mc.x;
+      this.progress.startingMcY = this.map.gameObjects.mc.y;
+      this.progress.startingMcDirection = this.map.gameObjects.mc.direction;
+      // console.log("test" + this.startingMcX, this.startingMcY, this.startingMcDirection);
     }
 
-    init() {
+    async init() {
+      
+      const container = document.querySelector(".game-container");
 
+      //Create a new progress tracker
+      this.progress = new Progress();
+
+      //Show title screen
+      this.titleScreen = new TitleScreen({
+        progress: this.progress
+      })
+      // const useSaveFile = await this.titleScreen.init(container);
+      const useSaveFile = false;
+
+      //Potentially saved data from local storage
+      let initMcState = null;
+      if (useSaveFile) {
+        this.progress.load();
+        initMcState = {
+          x: this.progress.startingMcX,
+          y: this.progress.startingMcY,
+          direction: this.progress.startingMcDirection,
+        }
+      }
+
+      //Loading the Hud
       this.hud = new Hud();
-      this.hud.init(document.querySelector(".game-container"));
+      this.hud.init(container);
 
-      this.startMap(OverworldMaps["magentaHouse"]);
+      //Start with first map
+      this.startMap(OverworldMaps[this.progress.mapId], initMcState);
       //console.log(this.map.walls);
       
+      //Create controls
       this.bindActionInput();
       this.bindHeroPositionCheck();
 
       this.directionInput = new DirectionInput();
       this.directionInput.init();
-      this.directionInput.direction; //"down"
+      // this.directionInput.direction; //"down"
       
+      //Kick off the game
       this.startGameLoop();
       
       // this.map.startCutscene([

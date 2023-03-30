@@ -1,7 +1,7 @@
 .Hud {
     position: absolute;
     left: -40px;
-    top: -20px;
+    top: 0px;
     image-rendering: pixelated;
     scale: 0.7;
 }

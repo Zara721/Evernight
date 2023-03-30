@@ -5,10 +5,10 @@ class PlayerState {
                 spriteId: "aq001",
                 hp: 50,
                 maxHp: 50,
-                xp: 97,
+                xp: 0,
                 maxXp: 100,
                 level: 1,
-                state: {type: "hugs"},
+                state: null
             }
         }
         this.lineup = ["sp1"];
