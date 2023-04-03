@@ -141,20 +141,26 @@ class WorldMap {
           y: utils.withGrid(10),
           src:  "./images/ccWorldAster.png",
           behaviourLoop: [
-            { type: "walk", direction: "right"},
-            { type: "stand", direction: "up", time: 800},
-            { type: "walk", direction: "up"},
-            { type: "walk", direction: "left"},
-            { type: "walk", direction: "down"},
+            // { type: "walk", direction: "right"},
+            // { type: "stand", direction: "up", time: 800},
+            // { type: "walk", direction: "up"},
+            // { type: "walk", direction: "left"},
+            // { type: "walk", direction: "down"},
           ],
           talking: [
             {
+              required: ["Used_Gem_Stone"],
               events: [
                 {type: "textMessage", text: "It's a wonderful day for a duel...", faceMc: "npc1"},
                 {type: "battle", enemyId: "aster"},
+                {who: "npc1", type: "stand", direction: "down", time: 50},
               ]
             },
-            
+            {
+              events: [
+                {type: "textMessage", text: "Mind you don't bother the fireflies without a sprite of your own", faceMc: "npc1"},
+              ]
+            },     
           ]
         }, 
          npc2: {
@@ -169,14 +175,14 @@ class WorldMap {
             { type: "stand", direction: "up", time: 300},
           ],
           talking: [
-            {
-              required: ["Talked_to_Celeste"],
-              events: [
-                {type: "textMessage", text: "Don't you think Celeste has the coolest hair", faceMc: "npc2"}
-                // {type: "textMessage", text: "I already gave you my favorite a flower crown", faceMc: "npc2"},
-                // {type: "textMessage", text: "Hmmp, wait till my brother gets to you"},
-              ]
-            },
+            // {
+            //   // required: ["Talked_to_Celeste"],
+            //   // events: [
+            //   //   {type: "textMessage", text: "Don't you think Celeste has the coolest hair", faceMc: "npc2"}
+            //   //   // {type: "textMessage", text: "I already gave you my favorite a flower crown", faceMc: "npc2"},
+            //   //   // {type: "textMessage", text: "Hmmp, wait till my brother gets to you"},
+            //   // ]
+            // },
             {
               required: ["Defeat_Amberly"],
               events: [
@@ -185,12 +191,22 @@ class WorldMap {
               ]
             },
             {
+              required: ["Used_Gem_Stone"],
               events: [
-                {type: "textMessage", text: "You don't got a flower crown", faceMc: "npc2"},
-                { type: "battle", enemyId: "amberly"},
+                {type: "textMessage", text: "Haha I challenge you to a fight", faceMc: "npc2"},
+                {type: "textMessage", text: "Winner gets the best flower crown in town!", faceMc: "npc2"},
+                {type: "battle", enemyId: "amberly"},
                 {type: "addStoryFlag", flag: "Defeat_Amberly"},
-                {type: "textMessage", text: "Well maybe you do deserve this flower crown...", faceMc: "npc1"},
+                {type: "removeStoryFlag", flag: "Used_Gem_Stone"},
+                {type: "textMessage", text: "Well maybe you do deserve this flower crown...", faceMc: "npc2"},
+                {type: "textMessage", text: "Oh, you can use it as material to summon another sprite...", faceMc: "npc2"},
                 // {type: "textMessage", text: "I've got the best flower crown in town!"},
+              ]
+            },
+            {
+              events: [
+                {type: "textMessage", text: "Wow, I've never seen someone without a sprite before", faceMc: "npc2"},
+                {type: "textMessage", text: "Maybe if you summon one with the sparkly gem we can battle!"},
               ]
             },
             
@@ -217,13 +233,204 @@ class WorldMap {
         [utils.asGridCoords(26,14)] : true,
         [utils.asGridCoords(27,14)] : true,
         [utils.asGridCoords(28,14)] : true,
+
+        //cream house
+        [utils.asGridCoords(30,10)] : true,
+        [utils.asGridCoords(31,10)] : true,
+        [utils.asGridCoords(32,10)] : true,
+        [utils.asGridCoords(33,10)] : true,
+
+        //top right trees
+        [utils.asGridCoords(36,8)] : true,
+        [utils.asGridCoords(37,8)] : true,
+        [utils.asGridCoords(38,8)] : true,
+        [utils.asGridCoords(39,8)] : true,
+
+        //bottom right tree
+        [utils.asGridCoords(30,18)] : true,
+        [utils.asGridCoords(31,18)] : true,
+        [utils.asGridCoords(32,18)] : true,
+        [utils.asGridCoords(33,18)] : true,
+        [utils.asGridCoords(34,18)] : true,
+        [utils.asGridCoords(35,18)] : true,
         
-        //side of the island
+        //island walls
+
+        //left side of island
+        [utils.asGridCoords(5,2)] : true,
+        [utils.asGridCoords(5,3)] : true,
+
+        //corner
         [utils.asGridCoords(4,3)] : true,
+
+        //side
         [utils.asGridCoords(3,4)] : true,
         [utils.asGridCoords(3,5)] : true,
         [utils.asGridCoords(3,6)] : true,
         [utils.asGridCoords(3,7)] : true, 
+        [utils.asGridCoords(3,8)] : true,
+        [utils.asGridCoords(3,9)] : true,
+        [utils.asGridCoords(3,10)] : true,
+        [utils.asGridCoords(3,11)] : true,
+        [utils.asGridCoords(3,12)] : true, 
+        [utils.asGridCoords(3,13)] : true,
+        
+        //corner
+        [utils.asGridCoords(2,13)] : true,
+
+        //side
+        [utils.asGridCoords(1,14)] : true,
+        [utils.asGridCoords(1,15)] : true,
+        [utils.asGridCoords(1,16)] : true,
+        [utils.asGridCoords(1,17)] : true,
+        [utils.asGridCoords(1,18)] : true,
+        [utils.asGridCoords(1,19)] : true,
+
+        //corner
+        [utils.asGridCoords(2,20)] : true,
+
+        //side
+        [utils.asGridCoords(3,20)] : true,
+        [utils.asGridCoords(3,21)] : true,
+        [utils.asGridCoords(3,22)] : true,
+
+        //top side
+        [utils.asGridCoords(6,1)] : true,
+        [utils.asGridCoords(7,1)] : true,
+        [utils.asGridCoords(8,1)] : true,
+
+        //top trees
+        [utils.asGridCoords(8,2)] : true,
+        [utils.asGridCoords(9,2)] : true,
+        [utils.asGridCoords(10,2)] : true,
+        [utils.asGridCoords(11,2)] : true,
+        [utils.asGridCoords(12,2)] : true,
+        [utils.asGridCoords(13,2)] : true,
+        [utils.asGridCoords(14,2)] : true,
+        [utils.asGridCoords(15,2)] : true,
+
+        //top
+        [utils.asGridCoords(16,1)] : true,
+        [utils.asGridCoords(17,1)] : true,
+
+        //corner
+        [utils.asGridCoords(18,2)] : true,
+
+        //top
+        [utils.asGridCoords(18,3)] : true,
+        [utils.asGridCoords(19,3)] : true,
+        [utils.asGridCoords(20,3)] : true,
+        [utils.asGridCoords(21,3)] : true,
+        [utils.asGridCoords(22,3)] : true,
+        [utils.asGridCoords(23,3)] : true,
+        [utils.asGridCoords(24,3)] : true,
+        [utils.asGridCoords(25,3)] : true,
+        [utils.asGridCoords(26,3)] : true,
+        [utils.asGridCoords(27,3)] : true,
+        [utils.asGridCoords(28,3)] : true,
+        [utils.asGridCoords(29,3)] : true,
+        [utils.asGridCoords(30,3)] : true,
+        [utils.asGridCoords(31,3)] : true,
+        [utils.asGridCoords(32,3)] : true,
+        [utils.asGridCoords(33,3)] : true,
+
+        //corner
+        [utils.asGridCoords(34,4)] : true,
+
+        //side
+        [utils.asGridCoords(34,5)] : true,
+        [utils.asGridCoords(35,5)] : true,
+        [utils.asGridCoords(36,5)] : true,
+        [utils.asGridCoords(37,5)] : true,
+        [utils.asGridCoords(38,5)] : true,
+        [utils.asGridCoords(39,5)] : true,
+        [utils.asGridCoords(40,5)] : true,
+        [utils.asGridCoords(41,5)] : true,
+
+        //right side
+        [utils.asGridCoords(42,6)] : true,
+        [utils.asGridCoords(42,7)] : true,
+        [utils.asGridCoords(42,8)] : true,
+        [utils.asGridCoords(42,9)] : true,
+        [utils.asGridCoords(42,10)] : true,
+        [utils.asGridCoords(42,11)] : true,
+        [utils.asGridCoords(42,12)] : true,
+        [utils.asGridCoords(42,13)] : true,
+
+        //corner
+        [utils.asGridCoords(41,14)] : true,
+
+        //right side boat
+        [utils.asGridCoords(40,14)] : true,
+        [utils.asGridCoords(40,15)] : true,
+        [utils.asGridCoords(42,16)] : true,
+        [utils.asGridCoords(42,17)] : true,
+        [utils.asGridCoords(42,15)] : true,
+        [utils.asGridCoords(41,18)] : true,
+        [utils.asGridCoords(40,18)] : true,
+        [utils.asGridCoords(40,19)] : true,
+
+        //corner
+        [utils.asGridCoords(39,20)] : true,
+
+        //right side
+        [utils.asGridCoords(38,20)] : true,
+        [utils.asGridCoords(38,21)] : true,
+
+        //bottom
+        [utils.asGridCoords(37,22)] : true,
+        [utils.asGridCoords(36,22)] : true,
+        [utils.asGridCoords(35,22)] : true,
+        [utils.asGridCoords(34,22)] : true,
+        [utils.asGridCoords(33,22)] : true,
+        [utils.asGridCoords(32,22)] : true,
+        [utils.asGridCoords(31,22)] : true,
+        [utils.asGridCoords(30,22)] : true,
+
+        //corner
+        [utils.asGridCoords(30,23)] : true,
+
+        //bottom
+        [utils.asGridCoords(29,24)] : true,
+        [utils.asGridCoords(28,24)] : true,
+        [utils.asGridCoords(27,24)] : true,
+        [utils.asGridCoords(26,24)] : true,
+        [utils.asGridCoords(25,24)] : true,
+        [utils.asGridCoords(24,24)] : true,
+        [utils.asGridCoords(23,24)] : true,
+        [utils.asGridCoords(22,24)] : true,
+        [utils.asGridCoords(21,24)] : true,
+        [utils.asGridCoords(20,24)] : true,
+        [utils.asGridCoords(19,24)] : true,
+        [utils.asGridCoords(18,24)] : true,
+        [utils.asGridCoords(17,24)] : true,
+        [utils.asGridCoords(16,24)] : true,
+        [utils.asGridCoords(15,24)] : true,
+        [utils.asGridCoords(14,24)] : true,
+        [utils.asGridCoords(13,24)] : true,
+        [utils.asGridCoords(12,24)] : true,
+        [utils.asGridCoords(11,24)] : true,
+        [utils.asGridCoords(10,24)] : true,
+        [utils.asGridCoords(9,24)] : true,
+        [utils.asGridCoords(8,24)] : true,
+        [utils.asGridCoords(7,24)] : true,
+        [utils.asGridCoords(6,24)] : true,
+        [utils.asGridCoords(5,24)] : true,
+        [utils.asGridCoords(4,24)] : true,
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
       },
       cutsceneSpaces: {
         [utils.asGridCoords(18,14)]: [
@@ -303,6 +510,10 @@ class WorldMap {
               events: [
                 {type: "textMessage", text: "Glad you made it to Evernight!", faceMc: "npc3"},
                 {who: "npc3", type: "stand", direction: "down", time: 50},
+                {type: "textMessage", text: "Have some trinkets as a welcome gift"},
+                {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
+                {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
+                {type: "textMessage", text: "These can help you restore some health in battle"},
                 {type: "addStoryFlag", flag: "Talked_to_Celeste"}
               ]
             },
@@ -319,7 +530,131 @@ class WorldMap {
       },
       walls: {
         //pink house
-        [utils.asGridCoords(15,6)] : true,
+        
+        //bed
+        [utils.asGridCoords(11,9)] : true,
+        [utils.asGridCoords(12,9)] : true,
+
+
+        [utils.asGridCoords(11,10)] : true,
+        [utils.asGridCoords(12,10)] : true,
+
+        //bedroom top wall
+        [utils.asGridCoords(11,7)] : true,
+        [utils.asGridCoords(12,7)] : true,
+        [utils.asGridCoords(13,7)] : true,
+        [utils.asGridCoords(14,7)] : true,
+
+         //bedroom door
+         [utils.asGridCoords(15,6)] : true,
+
+        //bedroom top wall
+        [utils.asGridCoords(16,7)] : true,
+        [utils.asGridCoords(17,7)] : true,
+        [utils.asGridCoords(18,7)] : true,
+
+        [utils.asGridCoords(18,8)] : true,
+        [utils.asGridCoords(19,8)] : true,
+        [utils.asGridCoords(20,8)] : true,
+        [utils.asGridCoords(21,8)] : true,
+        [utils.asGridCoords(22,8)] : true,
+
+        //bedroom top
+        [utils.asGridCoords(10,17)] : true,
+        [utils.asGridCoords(11,17)] : true,
+        [utils.asGridCoords(12,17)] : true,
+        [utils.asGridCoords(13,17)] : true,
+        [utils.asGridCoords(14,17)] : true,
+        [utils.asGridCoords(15,17)] : true,
+        [utils.asGridCoords(16,17)] : true,
+        [utils.asGridCoords(17,17)] : true,
+        [utils.asGridCoords(18,17)] : true,
+        [utils.asGridCoords(19,17)] : true,
+        [utils.asGridCoords(20,17)] : true,
+        [utils.asGridCoords(21,17)] : true,
+        [utils.asGridCoords(22,17)] : true,
+        [utils.asGridCoords(23,17)] : true,
+
+        //bedroom left
+        [utils.asGridCoords(10,7)] : true,
+        [utils.asGridCoords(10,8)] : true,
+        [utils.asGridCoords(10,9)] : true,
+        [utils.asGridCoords(10,10)] : true,
+        [utils.asGridCoords(10,11)] : true,
+        [utils.asGridCoords(10,12)] : true,
+        [utils.asGridCoords(10,13)] : true,
+        [utils.asGridCoords(10,14)] : true,
+        [utils.asGridCoords(10,15)] : true,
+        [utils.asGridCoords(10,16)] : true,
+
+        //bedroom right
+        [utils.asGridCoords(23,8)] : true,
+        [utils.asGridCoords(23,9)] : true,
+        [utils.asGridCoords(23,10)] : true,
+        [utils.asGridCoords(23,11)] : true,
+        [utils.asGridCoords(23,12)] : true,
+
+        [utils.asGridCoords(23,16)] : true,
+        [utils.asGridCoords(23,17)] : true,
+
+        //hallway
+        [utils.asGridCoords(24,16)] : true,
+        [utils.asGridCoords(25,16)] : true,
+        [utils.asGridCoords(26,16)] : true,
+
+        [utils.asGridCoords(24,12)] : true,
+        [utils.asGridCoords(25,12)] : true,
+        [utils.asGridCoords(26,12)] : true,
+
+        //lab room
+
+        //desk
+        [utils.asGridCoords(29,11)] : true,
+        [utils.asGridCoords(30,11)] : true,
+        [utils.asGridCoords(31,11)] : true,
+
+
+        //lab left
+        [utils.asGridCoords(26,7)] : true,
+        [utils.asGridCoords(26,8)] : true,
+        [utils.asGridCoords(26,9)] : true,
+        [utils.asGridCoords(26,10)] : true,
+        [utils.asGridCoords(26,11)] : true,
+
+        [utils.asGridCoords(26,17)] : true,
+        [utils.asGridCoords(26,18)] : true,
+
+        //lab top
+        [utils.asGridCoords(27,7)] : true,
+        [utils.asGridCoords(28,7)] : true,
+        [utils.asGridCoords(29,7)] : true,
+        [utils.asGridCoords(30,7)] : true,
+        [utils.asGridCoords(31,7)] : true,
+        [utils.asGridCoords(32,7)] : true,
+        [utils.asGridCoords(33,7)] : true,
+
+        //lab right
+        [utils.asGridCoords(34,7)] : true,
+        [utils.asGridCoords(34,8)] : true,
+        [utils.asGridCoords(34,9)] : true,
+        [utils.asGridCoords(34,10)] : true,
+        [utils.asGridCoords(34,11)] : true,
+        [utils.asGridCoords(34,12)] : true,
+        [utils.asGridCoords(34,13)] : true,
+        [utils.asGridCoords(34,14)] : true,
+        [utils.asGridCoords(34,15)] : true,
+        [utils.asGridCoords(34,16)] : true,
+        [utils.asGridCoords(34,17)] : true,
+        [utils.asGridCoords(34,18)] : true,
+
+        //lab bottom
+        [utils.asGridCoords(27,17)] : true,
+        [utils.asGridCoords(28,17)] : true,
+        [utils.asGridCoords(29,17)] : true,
+        [utils.asGridCoords(30,17)] : true,
+        [utils.asGridCoords(31,17)] : true,
+        [utils.asGridCoords(32,17)] : true,
+        [utils.asGridCoords(33,17)] : true,
         
       },
       cutsceneSpaces: {

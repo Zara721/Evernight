@@ -20,6 +20,10 @@ body {
       font-family: 'Ribeye';
   }
 
+button {
+  font-family: 'Ribeye';
+}
+
 canvas {
   image-rendering:  pixelated;
   background-color: #1d3e41;

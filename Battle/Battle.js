@@ -114,6 +114,13 @@ class Battle {
         this.playerTeam = new Team("player", "Protagonist");
         this.enemyTeam = new Team("enemy", "Hobbyist");
 
+        // stop playing background music
+
+        // Start battle music
+        utils.emitEvent("BattleStart");
+        const battleMusic = new Sound("./Sound/battle.mp3");
+        battleMusic.loop();
+
         Object.keys(this.combatents).forEach(key => {
             let combatent = this.combatents[key];
             combatent.id = key;
@@ -160,10 +167,14 @@ class Battle {
 
                     //Send signal to update
                     utils.emitEvent("PlayerStateUpdate");
+                    utils.emitEvent("BattleEnd");
                 }
 
                 this.element.remove();
                 this.onComplete(winner === "player");
+
+                // End battle music and resume background music
+                battleMusic.stop();
             }
         })
         this.turnCycle.init();

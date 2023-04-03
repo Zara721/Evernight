@@ -22,7 +22,7 @@ window.Enemies = {
         src: "./images/ccWorldAmberly.png",
         sprites: {
             "a": {
-                hp: 1,
+                hp: 50,
                 spriteId: "sp001",
                 maxHp: 50,
                 level: 1,

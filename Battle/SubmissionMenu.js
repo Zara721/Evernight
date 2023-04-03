@@ -130,7 +130,9 @@ class SubmissionMenu {
 
     decide() {
         //To do; make the enemies always decide on their own
-        this.menuSubmit(Actions[ this.caster.actions[0] ]);
+        const randomIndex = Math.floor(Math.random() * this.caster.actions.length);
+        const action = Actions[this.caster.actions[randomIndex]];
+        this.menuSubmit(action);  
     }
 
     showMenu(container) {

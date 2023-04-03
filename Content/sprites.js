@@ -20,7 +20,7 @@ window.Sprites = {
         type: SpriteTypes.anima,
         src: "./images/sprites/spFirefly.png",
         icon: "./images/icons/animaSymbol.png",
-        actions: [ "damage1"],
+        actions: [ "stubsStatus", "hugsStatus2"],
     },
     "aq001": {
         name: "Crabby",
@@ -28,7 +28,7 @@ window.Sprites = {
         type: SpriteTypes.aquis,
         src: "./images/sprites/spCrab.png",
         icon: "./images/icons/aquisSymbol.png",
-        actions: [ "damage1", "damage2", "damage4"],
+        actions: [ "tackle2", "damage4", "stubsStatus2"],
     },
     "aq002": {
         name: "Asteroidea",
@@ -36,7 +36,7 @@ window.Sprites = {
         type: SpriteTypes.aquis,
         src: "./images/sprites/spStarfish.png",
         icon: "./images/icons/aquisSymbol.png",
-        actions: [ "damage1"],
+        actions: [ "damage4", "tackle3", "stubsStatus2"],
     },
     "pl001": {
         name: "Lilac",
@@ -60,7 +60,7 @@ window.Sprites = {
         type: SpriteTypes.sprit,
         src: "./images/sprites/spBlueSpirit.png",
         icon: "./images/icons/spiritSymbol.png",
-        actions: [ "damage1"],
+        actions: [ "damage1", "damage5"],
     },
     "sp002": {
         name: "Rimuru",
@@ -68,11 +68,11 @@ window.Sprites = {
         type: SpriteTypes.sprit,
         src: "./images/sprites/spBlueSlime.png",
         icon: "./images/icons/spiritSymbol.png",
-        actions: [ "damage1"],
+        actions: [ "damage5","damage1", "hugsStatus"],
     },
     "sp003": {
         name: "Timely Spirit",
-        description: " A mutunt possed clock that straddles the stream of time",
+        description: " A mutant possed clock that straddles the stream of time",
         type: SpriteTypes.sprit,
         src: "./images/sprites/spPossesedClock.png",
         icon: "./images/icons/spiritSymbol.png",

@@ -3,6 +3,7 @@ class World {
       this.element = config.element;
       this.canvas = this.element.querySelector(".game-canvas");
       this.ctx = this.canvas.getContext("2d");
+      this.bgMusic = new Sound("./Sound/outside.mp3");
     }
     
     startGameLoop() {
@@ -69,6 +70,18 @@ class World {
       })
     }
 
+    battleStart() {
+      document.addEventListener("BattleStart", e => {
+        this.bgMusic.stop();
+      })
+    }
+
+    battleEnd() {
+      document.addEventListener("BattleEnd", e => {
+        this.bgMusic.loop();
+      })
+    }
+
     startMap(mapConfig, mcInitialState=null) {
       this.map = new WorldMap (mapConfig)
       this.map.world = this;
@@ -126,10 +139,17 @@ class World {
       this.bindActionInput();
       this.bindHeroPositionCheck();
 
+      //add Battle Listeners
+      this.battleStart();
+      this.battleEnd();
+
       this.directionInput = new DirectionInput();
       this.directionInput.init();
       // this.directionInput.direction; //"down"
       
+      //play background music
+      this.bgMusic.loop();
+
       //Kick off the game
       this.startGameLoop();
       

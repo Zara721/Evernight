@@ -9,6 +9,26 @@ window.Actions = {
             {type: "textMessage", text: "{Target} is slammed with great force!"},
         ]
     },
+    tackle2:{
+        name: "Claw Attack",
+        description: "Assaults the enemy with sharp claws",
+        success: [
+            {type: "textMessage", text: "{Caster} uses {Action}!"},
+            {type: "animation", animation: "tackle"},
+            {type: "stateChange", damage: 10},
+            {type: "textMessage", text: "{Target} is pierced with deadly claws!"},
+        ]
+    },
+    tackle3:{
+        name: "Sucker Punch",
+        description: "Assaults the enemy with relentless puches",
+        success: [
+            {type: "textMessage", text: "{Caster} uses {Action}!"},
+            {type: "animation", animation: "tackle"},
+            {type: "stateChange", damage: 10},
+            {type: "textMessage", text: "{Target} is pummeled with great force!"},
+        ]
+    },
     damage2:{
         name: "Shadow Bolt",
         description: "Summons a bolt of darkness that strikes the target, dealing heavy damage",
@@ -39,6 +59,16 @@ window.Actions = {
             {type: "textMessage", text: "{Target} is engulfed in a watery exploision!"},
         ]
     },
+    damage5:{
+        name: "Slime Ball",
+        description: "A powerful slime ball that deal moderate damadge",
+        success: [
+            {type: "textMessage", text: "{Caster} uses {Action}!"},
+            {type: "animation", animation: "blob" , color: "#3AACAE"},
+            {type: "stateChange", damage: 10},
+            {type: "textMessage", text: "{Target} is drenched in slime!"},
+        ]
+    },
     hugsStatus:{
         name: "Warm Embrace",
         description: "Embraces the sprite in a warm hug, healing it for 3 turns",
@@ -48,9 +78,28 @@ window.Actions = {
             {type: "stateChange", state: { type: "hugs", expiresIn: 3}},
         ]
     },
+    hugsStatus2:{
+        name: "Glowing Meadows",
+        description: "Evelops the sprite in a warm glow, healing it for 3 turns",
+        targetType: "friendly",
+        success: [
+            {type: "textMessage", text: "{Caster} uses {Action}!"},
+            {type: "stateChange", state: { type: "hugs", expiresIn: 3}},
+        ]
+    },
     stubsStatus:{
         name: "Blinding Twirl",
         description: "Confuses the enemy and increases the chance of them missing their next attack",
+        success: [
+            {type: "textMessage", text: "{Caster} uses {Action}!"},
+            {type: "animation", animation: "spin"},
+            {type: "stateChange", state: { type: "stubs", expiresIn: 3}},
+            {type: "textMessage", text: "{Target} is left dazed and confused!"},
+        ]
+    },
+    stubsStatus2:{
+        name: "Sea Ritual",
+        description: "Mesmerises the enemy with enchanting sea ritual",
         success: [
             {type: "textMessage", text: "{Caster} uses {Action}!"},
             {type: "animation", animation: "spin"},

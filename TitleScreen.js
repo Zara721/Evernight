@@ -1,6 +1,14 @@
 class TitleScreen {
     constructor({ progress }) {
         this.progress = progress;
+        this.titleMusic = new Sound("./Sound/title.mp3");
+
+        this.handleClick = () => {
+            // Play audio when the user interacts with the document
+            this.titleMusic.loop();
+            document.removeEventListener('click', handleClick);
+          };
+        document.addEventListener('click', this.handleClick, { once: true });
     }
 
     getOptions(resolve) {
@@ -22,7 +30,11 @@ class TitleScreen {
                     this.close();
                     resolve(saveFile);
                 }
-            } : null
+            } : null,
+            {
+                label: "Music",
+                description: "Simply click anywhere on the screen to hear music",
+            },
         ].filter(v => v);
     }
 
@@ -35,6 +47,8 @@ class TitleScreen {
     }
 
     close() {
+        document.removeEventListener('click', this.handleClick);
+        this.titleMusic.stop();
         this.keyboardMenu.end();
         this.element.remove();
     }

@@ -89,6 +89,11 @@ class WorldEvent {
 
         battle.init(document.querySelector(".game-container"));
     }
+ 
+    giveItem(resolve) {
+      window.playerState.items.push({actionId: this.event.actionid, instanceId: this.event.instanceId});
+      resolve();
+    }
 
     pause(resolve) {
       this.map.isPaused = true;
@@ -105,6 +110,11 @@ class WorldEvent {
 
     addStoryFlag(resolve) {
       window.playerState.storyFlags[this.event.flag] = true;
+      resolve();
+    }
+
+    removeStoryFlag(resolve) {
+      window.playerState.storyFlags[this.event.flag] = false;
       resolve();
     }
 
