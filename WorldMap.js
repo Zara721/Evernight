@@ -149,10 +149,21 @@ class WorldMap {
           ],
           talking: [
             {
-              required: ["Used_Gem_Stone"],
+              required: ["Defeat_Amberly"],
               events: [
                 {type: "textMessage", text: "It's a wonderful day for a duel...", faceMc: "npc1"},
                 {type: "battle", enemyId: "aster"},
+                {type: "addStoryFlag", flag: "Defeat_Aster"},
+                {type: "removeStoryFlag", flag: "Used_Gem_Stone"},
+                {type: "textMessage", text: "Woah you have a great team", faceMc: "npc1"},
+                {type: "textMessage", text: "Take this energy orb to summon another sprite", faceMc: "npc1"},
+                {who: "npc1", type: "stand", direction: "down", time: 50},
+              ]
+            },
+            {
+              required: ["Used_Gem_Stone"],
+              events: [
+                {type: "textMessage", text: "Don't even think about challenging me if you can't even defeat Amber.", faceMc: "npc1"},
                 {who: "npc1", type: "stand", direction: "down", time: 50},
               ]
             },
@@ -187,19 +198,24 @@ class WorldMap {
               required: ["Defeat_Amberly"],
               events: [
                 {type: "textMessage", text: "I already gave you my favorite a flower crown", faceMc: "npc2"},
-                {type: "textMessage", text: "Hmmp, wait till my brother gets to you"},
+                {type: "textMessage", text: "Hmmp, wait till my brother Aster gets to you"},
               ]
             },
             {
               required: ["Used_Gem_Stone"],
               events: [
-                {type: "textMessage", text: "Haha I challenge you to a fight", faceMc: "npc2"},
+                {type: "textMessage", text: "Haha I, Amberlery Stone, challenge you to a sacred duel", faceMc: "npc2"},
                 {type: "textMessage", text: "Winner gets the best flower crown in town!", faceMc: "npc2"},
                 {type: "battle", enemyId: "amberly"},
                 {type: "addStoryFlag", flag: "Defeat_Amberly"},
                 {type: "removeStoryFlag", flag: "Used_Gem_Stone"},
                 {type: "textMessage", text: "Well maybe you do deserve this flower crown...", faceMc: "npc2"},
                 {type: "textMessage", text: "Oh, you can use it as material to summon another sprite...", faceMc: "npc2"},
+                {type: "textMessage", text: "Hmmp, take this to heal your sprite...", faceMc: "npc2"},
+                {type: "giveItem", actionid: "item_smallRecoverHp", instanceId: "item3"},
+                {type: "giveItem", actionid: "item_smallRecoverHp", instanceId: "item3"},
+                {type: "giveItem", actionid: "item_smallRecoverHp", instanceId: "item3"},
+                {type: "textMessage", text: "Gained x3 Axo Berrt"},
                 // {type: "textMessage", text: "I've got the best flower crown in town!"},
               ]
             },
@@ -480,7 +496,7 @@ class WorldMap {
           type: "Person",
           isPlayerControlled: true,
           x: utils.withGrid(15),
-          y: utils.withGrid(10),
+          y: utils.withGrid(8),
           src:  "./images/ccMc.png",
         },
         cat1: {
@@ -499,8 +515,8 @@ class WorldMap {
         },
         npc3: {
           type: "Person",
-          x: utils.withGrid(21),
-          y: utils.withGrid(12),
+          x: utils.withGrid(18),
+          y: utils.withGrid(9),
           src:  "./images/ccWorldCeleste.png",
           behaviourLoop: [
             
@@ -508,15 +524,14 @@ class WorldMap {
           talking: [
             {
               events: [
-                {type: "textMessage", text: "Glad you made it to Evernight!", faceMc: "npc3"},
-                {who: "npc3", type: "stand", direction: "down", time: 50},
-                {type: "textMessage", text: "Have some trinkets as a welcome gift"},
+                {type: "textMessage", text: "Have some trinkets to aid you on your journey!", faceMc: "npc3"},
                 {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
                 {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
                 {type: "textMessage", text: "These can help you restore some health in battle"},
-                {type: "addStoryFlag", flag: "Talked_to_Celeste"}
+                {who: "npc3", type: "stand", direction: "up", time: 50},
+                // {type: "addStoryFlag", flag: "First_Item"}
               ]
-            },
+            }
             
           ]
         }, 

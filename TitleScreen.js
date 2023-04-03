@@ -18,6 +18,7 @@ class TitleScreen {
                 label: "New Game",
                 description: "Start a new journey into the world of Evernight!",
                 handler: () => {
+                    utils.emitEvent("NewGame");
                     this.close();
                     resolve();
                 }

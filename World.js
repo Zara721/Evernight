@@ -70,6 +70,77 @@ class World {
       })
     }
 
+    introductionStart() {
+      document.addEventListener("NewGame", 
+        this.map.startCutscene([
+            {who: "mc", type: "walk", direction: "down"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "stand", direction: "right", time: 100},
+            {type: "textMessage", text: "Hi, I'm Celeste. I'll be in charge of your stay at Evernight!", faceMc: "npc3"},
+            {type: "textMessage", text: "Hope you had a safe trip, and feel free to ask any questions.", faceMc: "npc3"},
+            {who: "npc3", type: "stand", direction: "up", time: 100},
+            //mc walk near gem
+            {who: "mc", type: "walk", direction: "down"},
+            {who: "mc", type: "walk", direction: "down"},
+            {who: "mc", type: "walk", direction: "down"},
+            {who: "mc", type: "walk", direction: "down"},
+            {who: "mc", type: "walk", direction: "down"},
+
+
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+            {who: "mc", type: "walk", direction: "right"},
+
+
+            //Celeste catch up
+            {who: "npc3", type: "walk", direction: "right"},
+            {who: "npc3", type: "walk", direction: "right"},
+            {who: "npc3", type: "walk", direction: "right"},
+          
+            {who: "npc3", type: "walk", direction: "down"},
+            {who: "npc3", type: "walk", direction: "down"},
+            {who: "npc3", type: "walk", direction: "down"},
+            {who: "npc3", type: "walk", direction: "down"},
+            {who: "npc3", type: "walk", direction: "down"},
+
+            {who: "npc3", type: "walk", direction: "right"},
+            {who: "npc3", type: "walk", direction: "right"},
+            {who: "npc3", type: "walk", direction: "right"},
+            {who: "npc3", type: "walk", direction: "right"},
+            {who: "npc3", type: "walk", direction: "right"},
+            {who: "npc3", type: "walk", direction: "right"},
+            {who: "npc3", type: "stand", direction: "right", time: 100},
+
+            {type: "textMessage", text: "I see you're curious about  the purple sprite gem."},
+            {type: "textMessage", text: "Simply by pressing Enter, that powerful tool will allow you to summon your first sprite!"},
+            {type: "textMessage", text: "Keep in mind you can also press Enter to interact with other people on the island!"},
+            {type: "textMessage", text: "And Esc lets you open the pause menu!"},
+
+
+            {who: "npc3", type: "walk", direction: "right"},
+            {who: "npc3", type: "walk", direction: "up"},
+            {who: "npc3", type: "walk", direction: "up"},
+            {who: "npc3", type: "walk", direction: "up"},
+            {who: "npc3", type: "walk", direction: "up"},
+            {who: "npc3", type: "walk", direction: "up"},
+            {who: "npc3", type: "stand", direction: "up", time: 50},
+          ])
+      )
+    }
+
     battleStart() {
       document.addEventListener("BattleStart", e => {
         this.bgMusic.stop();
@@ -150,14 +221,11 @@ class World {
       //play background music
       this.bgMusic.loop();
 
+      //Add new game check
+      this.introductionStart();
+
       //Kick off the game
       this.startGameLoop();
-      
-      // this.map.startCutscene([
-      //   {type: "battle", enemyId: "amberly"},
-      //   // {type: "changeMap", map: "ccIsland"},
-      //   // {type: "textMessage", text: "Greetings, welcome to Evernight!"},
-      // ])
       
     }
   }
