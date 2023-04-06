@@ -513,10 +513,10 @@ class WorldMap {
             //a random encouter event
             events: [
               {type: "textMessage", text: "A shimmer under the lake catches your eye!"},
-              {type: "battle", enemyId: "startfish"},
+              {type: "battle", enemyId: "starfish"},
               {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
               {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
-              {type: "textMessage", text: "These can help you wash away negative status in battle"},
+              {type: "textMessage", text: "These can help you restore some health in battle"},
             ],
           }
         ],
@@ -551,19 +551,19 @@ class WorldMap {
             //a random encouter event
             events: [
               {type: "textMessage", text: "A chill runs down your spine as a blue ghostly figure materializes in front of you!"},
-              {type: "battle", enemyId: "spirit"},
+              {type: "battle", enemyId: "sprit"},
               // {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
               // {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
               // {type: "textMessage", text: "These can help you wash away negative status in battle"},
             ],
           }
         ],
-        [utils.asGridCoords(9,6)]: [
+        [utils.asGridCoords(9,5)]: [
           {
             //a random encouter event
             events: [
               {type: "textMessage", text: "A small, colorful blob of goo hops into view, looking at you with curiosity."},
-              {type: "battle", enemyId: "spirit2"},
+              {type: "battle", enemyId: "sprit2"},
               // {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
               // {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
               // {type: "textMessage", text: "These can help you wash away negative status in battle"},

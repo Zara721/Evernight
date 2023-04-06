@@ -52,6 +52,7 @@ class TurnCycle {
                 text: `You have chosen to flee from battle.`
             })
             this.onWinner("enemy");
+            utils.emitEvent("BattleEnd");
             return;
         }
 

@@ -130,7 +130,7 @@ class World {
             {type: "textMessage", text: "And that purple chamber allows you to heal your sprites!"},
             {type: "textMessage", text: "Keep in mind you can also press Enter to interact with other people or items on the island!"},
             {type: "textMessage", text: "And Esc lets you open the pause menu!"},
-            {type: "textMessage", text: "Walk around with the arrow keys ir WASD."},
+            {type: "textMessage", text: "Walk around with the arrow keys or WASD."},
 
 
 
