@@ -514,9 +514,9 @@ class WorldMap {
             events: [
               {type: "textMessage", text: "A shimmer under the lake catches your eye!"},
               {type: "battle", enemyId: "starfish"},
-              {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
-              {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
-              {type: "textMessage", text: "These can help you restore some health in battle"},
+              {type: "giveItem", actionid: "itemDamage3", instanceId: "item6"},
+              {type: "textMessage", text: "Gained x1 Fish Scale"},
+              {type: "textMessage", text: "These can help harm your enemies in battle"},
             ],
           }
         ],
@@ -527,9 +527,9 @@ class WorldMap {
             events: [
               {type: "textMessage", text: "A twisty vine riggles through the bushes!"},
               {type: "battle", enemyId: "vine"},
-              // {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
-              // {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
-              // {type: "textMessage", text: "These can help you wash away negative status in battle"},
+              {type: "giveItem", actionid: "itemDamage2", instanceId: "item5"},
+              {type: "textMessage", text: "Gained x1 Venus Flytrap"},
+              {type: "textMessage", text: "These can help attack your enemies in battle"},
             ],
           }
         ],
@@ -539,9 +539,9 @@ class WorldMap {
             events: [
               {type: "textMessage", text: "A sweet scent arises and a lilac flower springs into view!"},
               {type: "battle", enemyId: "lilac"},
-              // {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
-              // {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
-              // {type: "textMessage", text: "These can help you wash away negative status in battle"},
+              {type: "giveItem", actionid: "item_smallRecoverHp", instanceId: "item3"},
+              {type: "textMessage", text: "Gained x2 Axo Berry"},
+              {type: "textMessage", text: "These can help heal your sprite in battle"},
             ],
           }
         ],
@@ -552,9 +552,9 @@ class WorldMap {
             events: [
               {type: "textMessage", text: "A chill runs down your spine as a blue ghostly figure materializes in front of you!"},
               {type: "battle", enemyId: "sprit"},
-              // {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
-              // {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
-              // {type: "textMessage", text: "These can help you wash away negative status in battle"},
+              {type: "giveItem", actionid: "item_gradualHeal", instanceId: "item8"},
+              {type: "textMessage", text: "Gained x1 Ghostly Lantern"},
+              {type: "textMessage", text: "These can help gradually heal your sprite in battle"},
             ],
           }
         ],
@@ -564,9 +564,9 @@ class WorldMap {
             events: [
               {type: "textMessage", text: "A small, colorful blob of goo hops into view, looking at you with curiosity."},
               {type: "battle", enemyId: "sprit2"},
-              // {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
-              // {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
-              // {type: "textMessage", text: "These can help you wash away negative status in battle"},
+              {type: "giveItem", actionid: "item_recoverHp2", instanceId: "item7"},
+              {type: "textMessage", text: "Gained x1 Ectoplasm Vial"},
+              {type: "textMessage", text: "These can help to heal your sprite in battle"},
             ],
           }
         ],

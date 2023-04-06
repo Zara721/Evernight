@@ -14,13 +14,13 @@ class PlayerState {
         this.lineup = [];
         this.items = [
             // {actionId: "item_recoverHp", instanceId: "item1"},
-            // {actionId: "item_recoverHp", instanceId: "item1"},
-            // {actionId: "item_recoverStatus", instanceId: "item2"},
             // {actionId: "item_recoverStatus", instanceId: "item2"},
             // {actionId: "item_smallRecoverHp", instanceId: "item3"},
-            // {actionId: "item_smallRecoverHp", instanceId: "item3"},
             // {actionId: "itemDamage1", instanceId: "item4"},
-            // {actionId: "itemDamage1", instanceId: "item4"},
+            // {actionId: "itemDamage2", instanceId: "item5"},
+            // {actionId: "itemDamage3", instanceId: "item6"},
+            // {actionId: "item_recoverHp2", instanceId: "item7"},
+            // {actionId: "item_gradualHeal", instanceId: "item8"}
 
         ]
         this.storyFlags = {

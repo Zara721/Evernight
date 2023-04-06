@@ -130,6 +130,27 @@ window.Actions = {
 
         ],
     },
+    item_recoverHp2: {
+        name: "Ectoplasm Vial",
+        description: "A glass vial filled with a suscpicious green liquid rumered to have healing effects",
+        targetType: "friendly",
+        success: [
+            {type: "textMessage", text: "{Caster} uses {Action}!"},
+            {type: "stateChange", recover: 12, },
+            {type: "textMessage", text: "{Caster}'s injuries are mended and health is restored!"},
+
+        ],
+    },
+    item_gradualHeal: {
+        name: "Ghostly Lantern",
+        description: "A small, flickering lantern that illuminates the surrounding area with an eerie but healing glow.",
+        targetType: "friendly",
+        success: [
+            {type: "textMessage", text: "{Caster} uses {Action}!"},
+            {type: "stateChange", state: { type: "hugs", expiresIn: 3}},
+            {type: "textMessage", text: "{Caster}'s injuries tingle in the light and health is restored!"},
+        ],
+    },
     item_smallRecoverHp: {
         name: "Axo Berry",
         description: "A small, magenta berry that is known for its healing properties",
@@ -148,6 +169,24 @@ window.Actions = {
         {type: "textMessage", text: "{Caster} uses {Action}!"},
         {type: "stateChange", damage: 15},
         {type: "textMessage", text: "{Target} is swarmed by fireflies!"}
+        ]
+    },
+    itemDamage2: {
+        name: "Venus Flytrap",
+        description: "A portable carnivorous plant that traps enemies for food.",
+        success: [
+        {type: "textMessage", text: "{Caster} uses {Action}!"},
+        {type: "stateChange", damage: 15},
+        {type: "textMessage", text: "{Target} is snapped by venus flytrap!"}
+        ]
+    },
+    itemDamage3: {
+        name: "Fish Scale",
+        description: "A sharp fish scale honed at the bottom of the lake.",
+        success: [
+        {type: "textMessage", text: "{Caster} uses {Action}!"},
+        {type: "stateChange", damage: 12},
+        {type: "textMessage", text: "{Target} is sliced by fish scale!"}
         ]
     }
     
