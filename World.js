@@ -126,11 +126,9 @@ class World {
             {who: "npc3", type: "stand", direction: "right", time: 100},
 
             {type: "textMessage", text: "I see you're curious about  the purple sprite gem."},
-            {type: "textMessage", text: "Simply by pressing Enter, that powerful tool will allow you to summon your first sprite!"},
-            {type: "textMessage", text: "And that purple chamber allows you to heal your sprites!"},
-            {type: "textMessage", text: "Keep in mind you can also press Enter to interact with other people or items on the island!"},
-            {type: "textMessage", text: "And Esc lets you open the pause menu!"},
-            {type: "textMessage", text: "Walk around with the arrow keys or WASD."},
+            {type: "textMessage", text: "Simply by pressing Enter, that powerful tool will allow you to summon your first sprite, and the purple chamber to the right allows you to heal your sprites!"},
+            {type: "textMessage", text: "Keep in mind you can also press Enter to interact with other people or items on the island, and Esc lets you open the pause menu!"},
+            {type: "textMessage", text: "You can also walk around with the arrow keys or WASD."},
 
 
 

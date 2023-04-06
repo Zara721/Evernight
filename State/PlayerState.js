@@ -1,17 +1,17 @@
 class PlayerState {
     constructor() {
         this.sprites = {
-            // "sp1": {
-            //     spriteId: "aq001",
-            //     hp: 10,
-            //     maxHp: 50,
-            //     xp: 0,
-            //     maxXp: 100,
-            //     level: 1,
-            //     state: null
-            // }
+            "sp1": {
+                spriteId: "aq001",
+                hp: 50,
+                maxHp: 50,
+                xp: 0,
+                maxXp: 100,
+                level: 5,
+                state: null
+            }
         }
-        this.lineup = [];
+        this.lineup = ["sp1"];
         this.items = [
             // {actionId: "item_recoverHp", instanceId: "item1"},
             // {actionId: "item_recoverStatus", instanceId: "item2"},

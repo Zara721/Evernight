@@ -6,14 +6,14 @@ window.Enemies = {
             "a": {
                 spriteId: "pl001",
                 maxHp: 50,
-                level: 1,
+                level: 2,
                 attack: 4,
                 defence: 3,
             },
             "b": {
                 spriteId: "pl002",
-                maxHp: 50,
-                level: 1,
+                maxHp: 70,
+                level: 2,
             },
         }
     },
@@ -22,10 +22,30 @@ window.Enemies = {
         src: "./images/ccWorldAmberly.png",
         sprites: {
             "a": {
-                hp: 50,
                 spriteId: "sp001",
                 maxHp: 50,
                 level: 1,
+            },
+        }
+    },
+    "amberly2": {
+        name: "Amberly",
+        src: "./images/ccWorldAmberly.png",
+        sprites: {
+            "a": {
+                spriteId: "sp002",
+                maxHp: 70,
+                level: 2,
+            },
+            "b": {
+                spriteId: "sp001",
+                maxHp: 80,
+                level: 2,
+            },
+            "c": {
+                spriteId: "sp003",
+                maxHp: 100,
+                level: 3,
             },
         }
     },
@@ -34,7 +54,6 @@ window.Enemies = {
         src: "./images/placeholder.png",
         sprites: {
             "a": {
-                hp: 50,
                 spriteId: "an002",
                 maxHp: 50,
                 level: 1,
@@ -46,7 +65,6 @@ window.Enemies = {
         src: "./images/placeholder.png",
         sprites: {
             "a": {
-                hp: 50,
                 spriteId: "an001",
                 maxHp: 50,
                 level: 1,
@@ -58,7 +76,6 @@ window.Enemies = {
         src: "./images/placeholder.png",
         sprites: {
             "a": {
-                hp: 50,
                 spriteId: "aq001",
                 maxHp: 50,
                 level: 1,
@@ -70,10 +87,9 @@ window.Enemies = {
         src: "./images/placeholder.png",
         sprites: {
             "a": {
-                hp: 50,
                 spriteId: "aq002",
-                maxHp: 50,
-                level: 1,
+                maxHp: 70,
+                level: 2,
             },
         }
     },
@@ -82,10 +98,9 @@ window.Enemies = {
         src: "./images/placeholder.png",
         sprites: {
             "a": {
-                hp: 50,
                 spriteId: "pl002",
-                maxHp: 50,
-                level: 1,
+                maxHp: 90,
+                level: 3,
             },
         }
     },
@@ -94,7 +109,6 @@ window.Enemies = {
         src: "./images/placeholder.png",
         sprites: {
             "a": {
-                hp: 50,
                 spriteId: "pl001",
                 maxHp: 50,
                 level: 1,
@@ -106,10 +120,9 @@ window.Enemies = {
         src: "./images/placeholder.png",
         sprites: {
             "a": {
-                hp: 50,
                 spriteId: "sp001",
                 maxHp: 50,
-                level: 1,
+                level: 2,
             },
         }
     },
@@ -118,10 +131,9 @@ window.Enemies = {
         src: "./images/placeholder.png",
         sprites: {
             "a": {
-                hp: 50,
                 spriteId: "sp002",
-                maxHp: 50,
-                level: 1,
+                maxHp: 80,
+                level: 2,
             },
         }
     },

@@ -153,10 +153,18 @@ class WorldMap {
           ],
           talking: [
             {
-              required: ["Defeat_Aster"],
+              required: ["Defeat_Amberly2"],
               events: [
                 {type: "textMessage", text: "I didn't expect you to be so strong.", faceMc: "npc1"},
                 {type: "textMessage", text: "...well I can't wait for Rio to come back to town.", faceMc: "npc1"},
+                {who: "npc1", type: "stand", direction: "down", time: 50},
+              ]
+            },
+            {
+              required: ["Defeat_Aster"],
+              events: [
+                {type: "textMessage", text: "That was a good match.", faceMc: "npc1"},
+                {type: "textMessage", text: "You might want to rechallenge my sister, I'm sure she was holding back.", faceMc: "npc1"},
                 {who: "npc1", type: "stand", direction: "down", time: 50},
               ]
             },
@@ -199,11 +207,23 @@ class WorldMap {
           ],
           talking: [
             {
+              required: ["Defeat_Amberly2"],
+              events: [
+                {type: "textMessage", text: "I already gave you the last of my flower crowns", faceMc: "npc2"},
+                {type: "textMessage", text: "Hmmp, Celeste is still the strongest on the island anyway"},
+              ]
+            },
+            {
               required: ["Defeat_Aster"],
               events: [
                 {type: "textMessage", text: "Woww, you really managed to beat Aster!!", faceMc: "npc2"},
-                {type: "textMessage", text: "I didn't know you had it in you!", faceMc: "npc2"}
-
+                {type: "textMessage", text: "I didn't know you had it in you!", faceMc: "npc2"},
+                {type: "textMessage", text: "We have to have a rematch!", faceMc: "npc2"},
+                {type: "battle", enemyId: "amberly2"},
+                {type: "addStoryFlag", flag: "Defeat_Amberly2"},
+                {type: "removeStoryFlag", flag: "Used_Gem_Stone"},
+                {type: "textMessage", text: "Alright..alright...you really bested me", faceMc: "npc2"},
+                {type: "textMessage", text: "Here take my backup sprite gem", faceMc: "npc2"},
               ]
             },
             {
@@ -491,7 +511,7 @@ class WorldMap {
               {type: "battle", enemyId: "firefly"},
               {type: "giveItem", actionid: "itemDamage1", instanceId: "item4"},
               {type: "textMessage", text: "Gained x1 Firefly Jar"},
-              {type: "textMessage", text: "These can help you restore some health in battle"},
+              {type: "textMessage", text: "These can help you explode your enemies in battle"},
             ],
           }
         ],
@@ -515,7 +535,8 @@ class WorldMap {
               {type: "textMessage", text: "A shimmer under the lake catches your eye!"},
               {type: "battle", enemyId: "starfish"},
               {type: "giveItem", actionid: "itemDamage3", instanceId: "item6"},
-              {type: "textMessage", text: "Gained x1 Fish Scale"},
+              {type: "giveItem", actionid: "itemDamage3", instanceId: "item6"},
+              {type: "textMessage", text: "Gained x2 Fish Scale"},
               {type: "textMessage", text: "These can help harm your enemies in battle"},
             ],
           }
@@ -528,7 +549,9 @@ class WorldMap {
               {type: "textMessage", text: "A twisty vine riggles through the bushes!"},
               {type: "battle", enemyId: "vine"},
               {type: "giveItem", actionid: "itemDamage2", instanceId: "item5"},
-              {type: "textMessage", text: "Gained x1 Venus Flytrap"},
+              {type: "giveItem", actionid: "itemDamage2", instanceId: "item5"},
+              {type: "giveItem", actionid: "itemDamage2", instanceId: "item5"},
+              {type: "textMessage", text: "Gained x3 Venus Flytrap"},
               {type: "textMessage", text: "These can help attack your enemies in battle"},
             ],
           }
@@ -565,7 +588,9 @@ class WorldMap {
               {type: "textMessage", text: "A small, colorful blob of goo hops into view, looking at you with curiosity."},
               {type: "battle", enemyId: "sprit2"},
               {type: "giveItem", actionid: "item_recoverHp2", instanceId: "item7"},
-              {type: "textMessage", text: "Gained x1 Ectoplasm Vial"},
+              {type: "giveItem", actionid: "item_recoverHp2", instanceId: "item7"},
+              {type: "giveItem", actionid: "item_recoverHp2", instanceId: "item7"},
+              {type: "textMessage", text: "Gained x3 Ectoplasm Vial"},
               {type: "textMessage", text: "These can help to heal your sprite in battle"},
             ],
           }
@@ -792,7 +817,7 @@ class WorldMap {
               {type: "battle", enemyId: "cat"},
               {type: "giveItem", actionid: "item_smallRecoverHp", instanceId: "item3"},
               {type: "textMessage", text: "Gained x3 Axo Berry"},
-              {type: "textMessage", text: "These can help you wash away negative status in battle"},
+              {type: "textMessage", text: "These can help to heal your sprite in battle"},
             ],
           }
         ],

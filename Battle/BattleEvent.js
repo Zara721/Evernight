@@ -26,14 +26,13 @@ class BattleEvent {
 
         if (damage) {
             //reflect that with the target having less health
+            // (console.log(target.hp));
             target.update({
-                hp: target.hp - damage 
+                hp: target.hp - ((damage + caster.level) - target.level)
             })
-            // console.log(caster.level)
             
             //start flickering
             target.spriteElement.classList.add("battle-damage-blink");
-            console.log(target)
         }
 
         if (recover) {
