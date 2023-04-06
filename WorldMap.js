@@ -63,6 +63,10 @@ class WorldMap {
         if (object.type === "SpriteGem") {
           instance = new SpriteGem(object)
         }
+        if (object.type === "HealChamber") {
+          instance = new HealChamber(object)
+          console.log("healCheck")
+        }
         
         this.gameObjects[key] = instance;
         this.gameObjects[key].id = key;
@@ -149,6 +153,14 @@ class WorldMap {
           ],
           talking: [
             {
+              required: ["Defeat_Aster"],
+              events: [
+                {type: "textMessage", text: "I didn't expect you to be so strong.", faceMc: "npc1"},
+                {type: "textMessage", text: "...well I can't wait for Rio to come back to town.", faceMc: "npc1"},
+                {who: "npc1", type: "stand", direction: "down", time: 50},
+              ]
+            },
+            {
               required: ["Defeat_Amberly"],
               events: [
                 {type: "textMessage", text: "It's a wonderful day for a duel...", faceMc: "npc1"},
@@ -186,14 +198,14 @@ class WorldMap {
             { type: "stand", direction: "up", time: 300},
           ],
           talking: [
-            // {
-            //   // required: ["Talked_to_Celeste"],
-            //   // events: [
-            //   //   {type: "textMessage", text: "Don't you think Celeste has the coolest hair", faceMc: "npc2"}
-            //   //   // {type: "textMessage", text: "I already gave you my favorite a flower crown", faceMc: "npc2"},
-            //   //   // {type: "textMessage", text: "Hmmp, wait till my brother gets to you"},
-            //   // ]
-            // },
+            {
+              required: ["Defeat_Aster"],
+              events: [
+                {type: "textMessage", text: "Woww, you really managed to beat Aster!!", faceMc: "npc2"},
+                {type: "textMessage", text: "I didn't know you had it in you!", faceMc: "npc2"}
+
+              ]
+            },
             {
               required: ["Defeat_Amberly"],
               events: [
@@ -470,6 +482,94 @@ class WorldMap {
             ]
           }
         ],
+        //firefly monster
+        [utils.asGridCoords(19,15)]: [
+          {
+            //a random encouter event
+            events: [
+              {type: "textMessage", text: "The grass rustles and a firfefly flutters out!"},
+              {type: "battle", enemyId: "firefly"},
+              {type: "giveItem", actionid: "itemDamage1", instanceId: "item4"},
+              {type: "textMessage", text: "Gained x1 Firefly Jar"},
+              {type: "textMessage", text: "These can help you restore some health in battle"},
+            ],
+          }
+        ],
+        //sea or lake monsters
+        [utils.asGridCoords(14,13)]: [
+          {
+            //a random encouter event
+            events: [
+              {type: "textMessage", text: "A claw pokes out the surface of the lake!"},
+              {type: "battle", enemyId: "crab"},
+              {type: "giveItem", actionid: "item_recoverStatus", instanceId: "item2"},
+              {type: "textMessage", text: "Gained x1 Cocunut Water"},
+              {type: "textMessage", text: "These can help you wash away negative status in battle"},
+            ],
+          }
+        ],
+        [utils.asGridCoords(12,15)]: [
+          {
+            //a random encouter event
+            events: [
+              {type: "textMessage", text: "A shimmer under the lake catches your eye!"},
+              {type: "battle", enemyId: "startfish"},
+              {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
+              {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
+              {type: "textMessage", text: "These can help you wash away negative status in battle"},
+            ],
+          }
+        ],
+        //plant encounters
+        [utils.asGridCoords(21,11)]: [
+          {
+            //a random encouter event
+            events: [
+              {type: "textMessage", text: "A twisty vine riggles through the bushes!"},
+              {type: "battle", enemyId: "vine"},
+              // {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
+              // {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
+              // {type: "textMessage", text: "These can help you wash away negative status in battle"},
+            ],
+          }
+        ],
+        [utils.asGridCoords(27,10)]: [
+          {
+            //a random encouter event
+            events: [
+              {type: "textMessage", text: "A sweet scent arises and a lilac flower springs into view!"},
+              {type: "battle", enemyId: "lilac"},
+              // {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
+              // {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
+              // {type: "textMessage", text: "These can help you wash away negative status in battle"},
+            ],
+          }
+        ],
+        // ghost encounters
+        [utils.asGridCoords(31,9)]: [
+          {
+            //a random encouter event
+            events: [
+              {type: "textMessage", text: "A chill runs down your spine as a blue ghostly figure materializes in front of you!"},
+              {type: "battle", enemyId: "spirit"},
+              // {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
+              // {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
+              // {type: "textMessage", text: "These can help you wash away negative status in battle"},
+            ],
+          }
+        ],
+        [utils.asGridCoords(9,6)]: [
+          {
+            //a random encouter event
+            events: [
+              {type: "textMessage", text: "A small, colorful blob of goo hops into view, looking at you with curiosity."},
+              {type: "battle", enemyId: "spirit2"},
+              // {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
+              // {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
+              // {type: "textMessage", text: "These can help you wash away negative status in battle"},
+            ],
+          }
+        ],
         [utils.asGridCoords(26,15)]: [
           {
             events: [
@@ -524,11 +624,17 @@ class WorldMap {
           talking: [
             {
               events: [
-                {type: "textMessage", text: "Have some trinkets to aid you on your journey!", faceMc: "npc3"},
-                {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
-                {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
-                {type: "textMessage", text: "These can help you restore some health in battle"},
+                {type: "textMessage", text: "If your looking for some trinkets to aid you on your journey...", faceMc: "npc3"},
+                {type: "textMessage", text: "There are always some lonely spritis behind houses...", faceMc: "npc3"},
+                {type: "textMessage", text: "Fluttering fireflies in the Glowing Meadows...", faceMc: "npc3"},
+                {type: "textMessage", text: "Or some watery critures looming in the lake...", faceMc: "npc3"},
+                {type: "textMessage", text: "Be sure to have some fun exploring the island!", faceMc: "npc3"},
                 {who: "npc3", type: "stand", direction: "up", time: 50},
+                // {type: "textMessage", text: "Have some trinkets to aid you on your journey!", faceMc: "npc3"},
+                // {type: "giveItem", actionid: "item_recoverHp", instanceId: "item1"},
+                // {type: "textMessage", text: "Gained x1 Bamboo Bandages"},
+                // {type: "textMessage", text: "These can help you restore some health in battle"},
+                // {who: "npc3", type: "stand", direction: "up", time: 50},
                 // {type: "addStoryFlag", flag: "First_Item"}
               ]
             }
@@ -539,9 +645,14 @@ class WorldMap {
           type: "SpriteGem",
           x: utils.withGrid(33),
           y: utils.withGrid(14),
-          storyFlag: "Used_Gem_Stone",
+          storyFlag: "Used_Gem_Stone", 
           sprites: ["an001", "sp002", "aq002"],
-        }
+        },
+        healChamber: {
+          type: "HealChamber",
+          x: utils.withGrid(33),
+          y: utils.withGrid(10),
+        },
       },
       walls: {
         //pink house
@@ -673,6 +784,18 @@ class WorldMap {
         
       },
       cutsceneSpaces: {
+        [utils.asGridCoords(12,16)]: [
+          {
+            //a random encouter event
+            events: [
+              {type: "textMessage", text: "A tail flickers overhead!"},
+              {type: "battle", enemyId: "cat"},
+              {type: "giveItem", actionid: "item_smallRecoverHp", instanceId: "item3"},
+              {type: "textMessage", text: "Gained x3 Axo Berry"},
+              {type: "textMessage", text: "These can help you wash away negative status in battle"},
+            ],
+          }
+        ],
         [utils.asGridCoords(15,7)]: [
           {
             events: [
@@ -682,9 +805,7 @@ class WorldMap {
                 x: utils.withGrid(26),
                 y: utils.withGrid(16),
                 direction: "down",
-              }
-              // {type: "changeMap", map: "ccIsland",},
-              // {who: "mc", type: "stand", direction: "down"},
+              },
             ]
           }
         ]

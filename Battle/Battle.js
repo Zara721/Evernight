@@ -4,53 +4,7 @@ class Battle {
         this.enemy = enemy;
         this.onComplete = onComplete;
 
-        this.combatents = {
-        //     "player1": new Combatent({
-        //         ...Sprites.an001,
-        //         team: "player",
-        //         hp: 40,
-        //         maxHp: 50,
-        //         xp: 97,
-        //         maxXp: 100,
-        //         level: 1,
-        //         state: {type: "hugs"},
-        //         isPlayerControlled: true
-        //     }, this),
-
-        //     "player2": new Combatent({
-        //         ...Sprites.aq001,
-        //         team: "player",
-        //         hp: 50,
-        //         maxHp: 50,
-        //         xp: 75,
-        //         maxXp: 100,
-        //         level: 1,
-        //         state: null,
-        //         isPlayerControlled: true
-        //     }, this),
-
-        //     "enemy1": new Combatent({
-        //         ...Sprites.pl001,
-        //         team: "enemy",
-        //         hp: 1,
-        //         maxHp: 50,
-        //         xp: 20,
-        //         maxXp: 100,
-        //         level: 1,
-        //         state: null,
-        //     }, this),
-
-        //     "enemy2": new Combatent({
-        //         ...Sprites.pl002,
-        //         team: "enemy",
-        //         hp: 50,
-        //         maxHp: 50,
-        //         xp: 30,
-        //         maxXp: 100,
-        //         level: 1,
-        //         state: null,
-        //     }, this),
-        }
+        this.combatents = {}
 
         this.activeCombatents = {
             player: null, // "player1",

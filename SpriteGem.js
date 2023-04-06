@@ -28,6 +28,7 @@ class SpriteGem extends GameObject {
                 ]
             }
         ]
+        console.log(this.talking)
     }
 
     update() {

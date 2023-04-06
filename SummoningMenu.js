@@ -12,6 +12,7 @@ class SummoningMenu {
                 description: base.description,
                 handler: () => {
                     playerState.addSprite(id);
+                    playerState.storyFlags["Have_Sprite"] = true;
                     this.close();
                 }
             }

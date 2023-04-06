@@ -77,6 +77,7 @@ class World {
             {who: "mc", type: "walk", direction: "right"},
             {who: "mc", type: "stand", direction: "right", time: 100},
             {type: "textMessage", text: "Hi, I'm Celeste. I'll be in charge of your stay at Evernight!", faceMc: "npc3"},
+            {type: "textMessage", text: "Keep in mind that there are some curious sprites wandering the island.", faceMc: "npc3"},
             {type: "textMessage", text: "Hope you had a safe trip, and feel free to ask any questions.", faceMc: "npc3"},
             {who: "npc3", type: "stand", direction: "up", time: 100},
             //mc walk near gem
@@ -126,6 +127,7 @@ class World {
 
             {type: "textMessage", text: "I see you're curious about  the purple sprite gem."},
             {type: "textMessage", text: "Simply by pressing Enter, that powerful tool will allow you to summon your first sprite!"},
+            {type: "textMessage", text: "And that purple chamber allows you to heal your sprites!"},
             {type: "textMessage", text: "Keep in mind you can also press Enter to interact with other people on the island!"},
             {type: "textMessage", text: "And Esc lets you open the pause menu!"},
 

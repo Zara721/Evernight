@@ -80,6 +80,11 @@ class WorldEvent {
     }
 
     battle(resolve) {
+        if (Object.keys(window.playerState.sprites).length === 0) {
+          resolve("Lost_Battle");
+          return;
+        }
+
         const battle = new Battle({
           enemy: Enemies[this.event.enemyId],
           onComplete: (didWin) => {
@@ -126,6 +131,21 @@ class WorldEvent {
         }
       })
       menu.init(document.querySelector(".game-container"));
+    }
+
+    healSprites(resolve) {
+      // Get all the sprites
+      const sprites = Object.values(window.playerState.sprites);
+  
+      // Heal all the sprites to full health
+      sprites.forEach((sprite) => {
+        sprite.hp = sprite.maxHp;
+      });
+  
+      // Resolve the event
+      console.log("healed sprite")
+      utils.emitEvent("PlayerStateUpdate");
+      resolve();
     }
 
     init() {

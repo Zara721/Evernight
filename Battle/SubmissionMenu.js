@@ -1,11 +1,9 @@
 class SubmissionMenu {
-    constructor({ caster, enemy, items, replacements, onComplete}) {
+    constructor({ caster, enemy, items, replacements, onComplete }) {
         this.caster = caster;
         this.enemy = enemy;
         this.replacements = replacements;
         this.onComplete = onComplete;
-
-        
 
         let quantityMap = {};
         items.forEach(item => {
@@ -63,6 +61,13 @@ class SubmissionMenu {
                         this.keyboardMenu.setOptions( this.getPages().replacements )
                     },
                 },
+                {
+                    label: "Flee" ,
+                    description: "Esape from battle",
+                    handler: () => {
+                        this.menuSubmitFlee();
+                    },
+                },
             ],
             attacks: [
                 ...this.caster.actions.map(key => {
@@ -114,6 +119,13 @@ class SubmissionMenu {
         this.keyboardMenu?.end();
         this.onComplete({
             replacement
+        });
+    }
+
+    menuSubmitFlee() {
+        this.keyboardMenu?.end();
+        this.onComplete({
+            flee: true
         });
     }
 

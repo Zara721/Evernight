@@ -3,7 +3,7 @@ class PlayerState {
         this.sprites = {
             // "sp1": {
             //     spriteId: "aq001",
-            //     hp: 50,
+            //     hp: 10,
             //     maxHp: 50,
             //     xp: 0,
             //     maxXp: 100,

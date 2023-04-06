@@ -44,6 +44,17 @@ class TurnCycle {
             this.battle.items = this.battle.items.filter(item => item.instanceId !== submission.instanceId) 
         }
 
+        //Did the player flee from battle
+        if(submission.flee) {
+            //End the battle
+            await this.onNewEvent ({
+                type: "textMessage", 
+                text: `You have chosen to flee from battle.`
+            })
+            this.onWinner("enemy");
+            return;
+        }
+
         const resultingEvents = caster.getReplacedEvents(submission.action.success);
 
         for (let i = 0; i < resultingEvents.length; i++) {
