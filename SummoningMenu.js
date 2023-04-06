@@ -5,7 +5,7 @@ class SummoningMenu {
     }
 
     getOptions() {
-        return this.sprites.map(id=> {
+        return this.sprites.map((id, index) => {
             const base = Sprites[id];
             return {
                 label: base.name,
@@ -13,6 +13,7 @@ class SummoningMenu {
                 handler: () => {
                     playerState.addSprite(id);
                     playerState.storyFlags["Have_Sprite"] = true;
+                    this.sprites.splice(index, 1);
                     this.close();
                 }
             }

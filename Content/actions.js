@@ -21,7 +21,7 @@ window.Actions = {
     },
     tackle3:{
         name: "Sucker Punch",
-        description: "Assaults the enemy with relentless puches",
+        description: "Assaults the enemy with relentless punches",
         success: [
             {type: "textMessage", text: "{Caster} uses {Action}!"},
             {type: "animation", animation: "tackle"},
@@ -61,7 +61,7 @@ window.Actions = {
     },
     damage5:{
         name: "Slime Ball",
-        description: "A powerful slime ball that deal moderate damadge",
+        description: "A powerful slime ball that deals moderate damadge",
         success: [
             {type: "textMessage", text: "{Caster} uses {Action}!"},
             {type: "animation", animation: "blob" , color: "#3AACAE"},
@@ -132,7 +132,7 @@ window.Actions = {
     },
     item_recoverHp2: {
         name: "Ectoplasm Vial",
-        description: "A glass vial filled with a suscpicious green liquid rumered to have healing effects",
+        description: "A glass vial filled with a suspicious green liquid rumoured to have healing effects",
         targetType: "friendly",
         success: [
             {type: "textMessage", text: "{Caster} uses {Action}!"},
@@ -164,7 +164,7 @@ window.Actions = {
     },
     itemDamage1: {
         name: "Firefly Jar",
-        description: "A jar filled with volitile fireflies that can deal serious damage",
+        description: "A jar filled with volatile fireflies that can deal serious damage",
         success: [
         {type: "textMessage", text: "{Caster} uses {Action}!"},
         {type: "stateChange", damage: 15},

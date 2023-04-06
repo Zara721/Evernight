@@ -175,7 +175,7 @@ class WorldMap {
                 {type: "battle", enemyId: "aster"},
                 {type: "addStoryFlag", flag: "Defeat_Aster"},
                 {type: "removeStoryFlag", flag: "Used_Gem_Stone"},
-                {type: "textMessage", text: "Woah you have a great team", faceMc: "npc1"},
+                {type: "textMessage", text: "Woah, you have a great team", faceMc: "npc1"},
                 {type: "textMessage", text: "Take this energy orb to summon another sprite", faceMc: "npc1"},
                 {who: "npc1", type: "stand", direction: "down", time: 50},
               ]
@@ -229,32 +229,32 @@ class WorldMap {
             {
               required: ["Defeat_Amberly"],
               events: [
-                {type: "textMessage", text: "I already gave you my favorite a flower crown", faceMc: "npc2"},
+                {type: "textMessage", text: "I already gave you my favorite flower crown", faceMc: "npc2"},
                 {type: "textMessage", text: "Hmmp, wait till my brother Aster gets to you"},
               ]
             },
             {
               required: ["Used_Gem_Stone"],
               events: [
-                {type: "textMessage", text: "Haha I, Amberlery Stone, challenge you to a sacred duel", faceMc: "npc2"},
+                {type: "textMessage", text: "Haha I, Amberley Stone, challenge you to a sacred duel", faceMc: "npc2"},
                 {type: "textMessage", text: "Winner gets the best flower crown in town!", faceMc: "npc2"},
                 {type: "battle", enemyId: "amberly"},
                 {type: "addStoryFlag", flag: "Defeat_Amberly"},
                 {type: "removeStoryFlag", flag: "Used_Gem_Stone"},
-                {type: "textMessage", text: "Well maybe you do deserve this flower crown...", faceMc: "npc2"},
+                {type: "textMessage", text: "Well, maybe you do deserve this flower crown...", faceMc: "npc2"},
                 {type: "textMessage", text: "Oh, you can use it as material to summon another sprite...", faceMc: "npc2"},
-                {type: "textMessage", text: "Hmmp, take this to heal your sprite...", faceMc: "npc2"},
+                {type: "textMessage", text: "Hmmp, take this...", faceMc: "npc2"},
                 {type: "giveItem", actionid: "item_smallRecoverHp", instanceId: "item3"},
                 {type: "giveItem", actionid: "item_smallRecoverHp", instanceId: "item3"},
                 {type: "giveItem", actionid: "item_smallRecoverHp", instanceId: "item3"},
-                {type: "textMessage", text: "Gained x3 Axo Berrt"},
-                // {type: "textMessage", text: "I've got the best flower crown in town!"},
+                {type: "textMessage", text: "Gained x3 Axo Bery"},
+                {type: "textMessage", text: "These can help heal your sprites in battle!"},
               ]
             },
             {
               events: [
                 {type: "textMessage", text: "Wow, I've never seen someone without a sprite before", faceMc: "npc2"},
-                {type: "textMessage", text: "Maybe if you summon one with the sparkly gem we can battle!"},
+                {type: "textMessage", text: "Maybe if you summon one with the sparkly gem, we can battle!"},
               ]
             },
             
@@ -507,7 +507,7 @@ class WorldMap {
           {
             //a random encouter event
             events: [
-              {type: "textMessage", text: "The grass rustles and a firfefly flutters out!"},
+              {type: "textMessage", text: "The grass rustles and a firefly  flutters out!"},
               {type: "battle", enemyId: "firefly"},
               {type: "giveItem", actionid: "itemDamage1", instanceId: "item4"},
               {type: "textMessage", text: "Gained x1 Firefly Jar"},
@@ -573,7 +573,7 @@ class WorldMap {
           {
             //a random encouter event
             events: [
-              {type: "textMessage", text: "A chill runs down your spine as a blue ghostly figure materializes in front of you!"},
+              {type: "textMessage", text: "A chill runs down your spine as a ghostly blue figure materializes in front of you!"},
               {type: "battle", enemyId: "sprit"},
               {type: "giveItem", actionid: "item_gradualHeal", instanceId: "item8"},
               {type: "textMessage", text: "Gained x1 Ghostly Lantern"},
@@ -650,9 +650,9 @@ class WorldMap {
             {
               events: [
                 {type: "textMessage", text: "If your looking for some trinkets to aid you on your journey...", faceMc: "npc3"},
-                {type: "textMessage", text: "There are always some lonely spritis behind houses...", faceMc: "npc3"},
+                {type: "textMessage", text: "There are always some lonely spirits behind houses...", faceMc: "npc3"},
                 {type: "textMessage", text: "Fluttering fireflies in the Glowing Meadows...", faceMc: "npc3"},
-                {type: "textMessage", text: "Or some watery critures looming in the lake...", faceMc: "npc3"},
+                {type: "textMessage", text: "Or some watery creatures looming in the lake...", faceMc: "npc3"},
                 {type: "textMessage", text: "Be sure to have some fun exploring the island!", faceMc: "npc3"},
                 {who: "npc3", type: "stand", direction: "up", time: 50},
                 // {type: "textMessage", text: "Have some trinkets to aid you on your journey!", faceMc: "npc3"},
@@ -671,7 +671,7 @@ class WorldMap {
           x: utils.withGrid(33),
           y: utils.withGrid(14),
           storyFlag: "Used_Gem_Stone", 
-          sprites: ["an001", "sp002", "aq002"],
+          sprites: ["an001", "sp002", "aq002","pl001"],
         },
         healChamber: {
           type: "HealChamber",

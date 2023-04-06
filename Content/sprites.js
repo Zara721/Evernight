@@ -40,7 +40,7 @@ window.Sprites = {
     },
     "pl001": {
         name: "Lilac",
-        description: " A delicate pink flower with a sweet, floral fragrance and a delicate souls",
+        description: " A delicate pink flower with a sweet, floral fragrance and a delicate soul",
         type: SpriteTypes.planta,
         src: "./images/sprites/spPinkFlower.png",
         icon: "./images/icons/plantaSymbol.png",
@@ -64,7 +64,7 @@ window.Sprites = {
     },
     "sp002": {
         name: "Rimuru",
-        description: " A friendly blue slime with a tendency to shapshift",
+        description: " A friendly blue slime with a tendency to shapeshift",
         type: SpriteTypes.sprit,
         src: "./images/sprites/spBlueSlime.png",
         icon: "./images/icons/spiritSymbol.png",
