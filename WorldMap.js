@@ -247,7 +247,7 @@ class WorldMap {
                 {type: "giveItem", actionid: "item_smallRecoverHp", instanceId: "item3"},
                 {type: "giveItem", actionid: "item_smallRecoverHp", instanceId: "item3"},
                 {type: "giveItem", actionid: "item_smallRecoverHp", instanceId: "item3"},
-                {type: "textMessage", text: "Gained x3 Axo Bery"},
+                {type: "textMessage", text: "Gained x3 Axo Berry"},
                 {type: "textMessage", text: "These can help heal your sprites in battle!"},
               ]
             },
